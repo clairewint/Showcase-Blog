@@ -10,7 +10,6 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" crossorigin="anonymous"></script>
     </head>
 
-
     <header class="header">
 
         <input class="menu-btn" type="checkbox" id="menu-btn" />
@@ -31,15 +30,15 @@
                 <li><a  id="item-5"href="">My Account</a></li>
                 <li><a id="log-in"  href=""> Log in </a></li>
  <li>
-                    <form class="search-bar">
+     <form method="post" action="search.php?go" class="search-bar">
                         <input type="text" name="search" placeholder="search...">
                     </form>
                 </li>
             </div>
         </ul>
-    </header>      
+     
     
-    
+    </header>
 
 
 </html>
