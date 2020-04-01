@@ -6,15 +6,16 @@ html body {
     background-color: white;
 }
 
-a {
-    color: #000;
+a {color: #000;
 }
 
 .flex-container{
-    padding-top:170px;
-    padding-right:44px;
-    padding-left:44px;
+    padding-top:120px;
+    padding-right:84px;
+    padding-left:84px;
 }
+
+
 
 /* header */
 
@@ -49,9 +50,9 @@ a {
 .header .logo {
     display: block;
     float: left;
-    padding-left: 30px;
-    padding-top:10px;
-    padding-bottom:20px;
+    padding-left: 70px;
+    padding-top:30px;
+    margin-bottom:30px;
     width:20%;
 }
 
@@ -59,12 +60,11 @@ a {
 /* menu */
 
 .header .menu {
-
     clear: both;
     max-height: 0;
     transition: max-height .2s ease-out;
     width: 80%;
-    padding-top:25px;
+    padding-top:50px;
 }
 
 .header .menu #menu-right {
@@ -75,11 +75,14 @@ a {
 .header .menu #menu-left {    
     float: left;
     width: 50%;
+    letter-spacing: 1px;
 }
 
 #log-in{
     border: 1px solid black;
     border-radius: 50px;
+    padding-top:10px;
+    padding-bottom:10px;
 }
 
 #log-in:hover{
@@ -98,12 +101,14 @@ a {
 }
 
 .header .menu-icon .navicon {
+    margin-top:20px;
+    margin-right:60px;
     background: #333;
     display: block;
     height: 2px;
     position: relative;
     transition: background .2s ease-out;
-    width: 18px;
+    width: 25px;
 }
 
 .header .menu-icon .navicon:before,
@@ -133,12 +138,14 @@ a {
 }
 
 .header .menu-btn:checked ~ .menu {
-    max-height: 600px;
+    max-height: 500px;
     padding-bottom:20px;
+    padding-top:80px;
 }
 
 .header .menu-btn:checked ~ .menu li {
     margin-bottom:15px;
+    margin-left:50px;
 }
 
 .header .menu-btn:checked ~ .menu li #log-in {
@@ -155,7 +162,7 @@ a {
 }
 
 .header .menu-btn:checked ~ .menu li #item-3 {
-    width:70px;
+    width:80px;
 }
 .header .menu-btn:checked ~ .menu li #item-4 {
     width:55px;
@@ -183,7 +190,7 @@ a {
 
 /* 48em = 768px */
 
-@media (min-width: 73em) {
+@media (min-width: 80em) {
     .header #menu-right li {
         float: right;
     }
@@ -192,7 +199,7 @@ a {
         float: left;
     }
     .header li a {
-        padding: 10px 10px;
+        padding: 5px 10px;
         margin-right:40px;
     }
     .header .menu {
@@ -235,3 +242,72 @@ input[type=text]:focus {
 input[type=text]:focusout {
 
 }
+
+
+/*********FOOTER***********/
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: #f9bb26;
+    color: darkslategrey;
+    font-size: 12px;
+}
+
+.footer-container{
+    padding-right:84px;
+    padding-left:84px;
+    padding-top: 20px;
+    padding-bottom:50px;
+}
+
+footer a {
+    color: darkslategrey;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: darkslategrey;
+    text-decoration: none;
+    border-bottom: 2px solid darkslategrey; 
+}
+
+footer h6 {
+    color: darkslategrey;
+    letter-spacing: 1px;
+    margin: 30px 0 20px;
+}
+
+footer .three-column {
+    overflow: hidden;
+}
+
+footer .three-column li{
+    width: 33.3333%;
+    float: left;
+    padding: 5px 0;
+}
+
+footer .socila-list {
+    overflow: hidden;
+    margin: 75px 20px 0px;
+}
+
+footer .socila-list li {
+    float: left;
+    margin-right: 30px; 
+    margin-bottom: 15px;
+    opacity: 0.7;
+    overflow: hidden;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+}
+
+
+
+footer .socila-list li:hover {
+    opacity: 1;
+}
+

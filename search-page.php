@@ -15,13 +15,14 @@
     <body>
         <?php
         include 'header.php';
+        include 'footer.php';
         include 'search-program.php';
         ?>
-      
+
         <div class="flex-container">
             <h1>Echo 'search results for [search query text]</h1>
             <p>jdkqjdjdhqldwhlqkwdhlqkwdhlqkdhlqkwdhnqlkdhnqlkdnql</p>
         </div>
-        
+
     </body>
 </html>

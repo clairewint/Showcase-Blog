@@ -29,15 +29,15 @@
             <div id="menu-right">
                 <li><a  id="item-5"href="">My Account</a></li>
                 <li><a id="log-in"  href=""> Log in </a></li>
- <li>
-     <form method="post" action="search.php?go" class="search-bar">
+                <li>
+                    <form method="post" action="search-page.php?go" class="search-bar">
                         <input type="text" name="search" placeholder="search...">
                     </form>
                 </li>
             </div>
         </ul>
-     
-    
+
+
     </header>
 
 
