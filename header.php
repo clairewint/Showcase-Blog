@@ -22,38 +22,24 @@
 
         <ul class="menu">
             <div id="menu-left">
-                <li><a class="active" href="#family">FAMILY</a></li>
-                <li><a class="active" href="#search">FOOD</a></li>
-                <li><a class="active" href="#search">KEEP FIT</a></li>
-                <li> <a class="active" href="#search">CRAFT</a></li>
+                <li><a id="item-1" href="#family">FAMILY</a></li>
+                <li><a id="item-2" href="#search">FOOD</a></li>
+                <li><a  id="item-3"href="#search">KEEP FIT</a></li>
+                <li> <a  id="item-4"href="#search">CRAFT</a></li>
             </div>
             <div id="menu-right">
-                <li>
-                    <form>
+                <li><a  id="item-5"href="">My Account</a></li>
+                <li><a id="log-in"  href=""> Log in </a></li>
+ <li>
+                    <form class="search-bar">
                         <input type="text" name="search" placeholder="search...">
                     </form>
                 </li>
-                <li><a id="log-in" class="active" href="#search"> Log in </a></li>
-                <li><a class="active" href="#search">My Account</a></li>
-
             </div>
         </ul>
-    </header>      <body>
-
-        <script>
-            $("#inpt_search").on('focus', function () {
-                $(this).parent('label').addClass('active');
-            });
-
-            $("#inpt_search").on('blur', function () {
-                if ($(this).val().length == 0)
-                    $(this).parent('label').removeClass('active');
-            });</script>   
-
-
-
-
-    </body>
+    </header>      
+    
+    
 
 
 </html>
