@@ -1,31 +1,55 @@
 
 /*****GENERAL SITE WIDE********/
 
-html body {
-    font-family: Helvetica, sans-serif;
-    background-color: white;
+#page-container{
+    position: relative;
+    min-height: 100vh;
 }
-
-a {color: #000;
-}
-
-.flex-container{
-    padding-top:120px;
-    padding-right:84px;
-    padding-left:84px;
-}
-
-
-
-/* header */
 
 .header {
     background-color: #fff;
     box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
-    position: fixed;
+    position: absolute;
     width: 100%;
     z-index: 3;
 }
+
+#content-wrap{
+    padding-bottom: 20rem;   
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 15rem;
+    background: #f9bb26;
+    color: darkslategrey;
+    font-size: 12px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+h1, h6{font-family: 'Cabin', sans-serif;
+}
+
+p{ font-family: 'Open Sans', sans-serif;   
+}
+
+
+
+/****** header *******/
+
+
 
 .header ul {
     margin: 0;
@@ -246,17 +270,9 @@ input[type=text]:focusout {
 
 /*********FOOTER***********/
 
-footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background: #f9bb26;
-    color: darkslategrey;
-    font-size: 12px;
-}
 
-.footer-container{
+
+#footer{
     padding-right:84px;
     padding-left:84px;
     padding-top: 20px;
@@ -305,9 +321,69 @@ footer .socila-list li {
     transition: all 0.3s ease-in-out;
 }
 
-
-
 footer .socila-list li:hover {
     opacity: 1;
 }
 
+/**HOME****/
+
+.container-fluid{
+    background-color: white;  
+}
+
+.intro-section{
+    padding-top: 230px;
+    padding-left:80px;
+    width:100%;
+    padding-bottom:50px;
+    background-color: white;
+}
+
+.main-section{
+    padding-top:50px;
+    padding-left:84px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow: hidden;
+}
+
+@media screen and (min-width: 60em){
+    .main-section{ 
+        padding-top:20px;
+        width:100%;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        overflow: hidden;
+    }    
+}
+
+.card{
+    width: 25rem;
+    margin-right:30px;
+    border:0;
+    border-radius: 0px;
+}
+.card-img-top{
+    height:250px;border:0;
+}
+
+.view-all a{
+    color:#000;
+}
+
+.view-all{
+    padding-left:84px;
+    text-decoration:none;
+}
+
+.view-all li{
+    display:inline;
+    float:left;
+    text-decoration:none;
+}
+
+.view-all ul{
+    padding:0;
+}
