@@ -9,9 +9,6 @@ Author Claire Winterbottom
         <title> Log in </title>
         <link rel=stylesheet href="../stylesheet.css">
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"  crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"  crossorigin="anonymous"></script>
-        <link href="https://fonts.googleapis.com/css?family=Sen&display=swap" rel="stylesheet">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" crossorigin="anonymous">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"  crossorigin="anonymous">
     </head>
@@ -19,7 +16,8 @@ Author Claire Winterbottom
 
         
         <?php
-        //include "../footer.php";
+        include "footer.php";
+        include "header.php";
         //include "../search-program.php";
        
          ?>
