@@ -19,7 +19,7 @@ Author Claire Winterbottom
 
         
         <?php
-        include "../footer.php";
+        //include "../footer.php";
         //include "../search-program.php";
        
          ?>
