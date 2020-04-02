@@ -8,9 +8,9 @@
 class Blogger extends Users{
     private $firstname;
     private $lastname;
-    private $postcount = 0; //I've set this to 0 as this won't be art of the information included when creating a new Blogger object,
-    private $commentcount = 0; //but I;m unsure if we should remove it as a property?
     private $profileImg;
+    private static $postcount; //Making these attributes static means they don't need an object to be created in order to be used.
+    private static $commentcount; //This means we can make the registration page match the attributes needed in the constructor.
     
     function getFirstname() {
         return $this->firstname;
@@ -52,13 +52,18 @@ class Blogger extends Users{
         $this->profileImg = $profileImg;
     }
 
-    function __construct($firstname, $lastname, $postcount, $commentcount, $profileImg) {
+    function __construct($firstname, $lastname, $profileImg) {
         parent::__construct($username, $password, $email, $usertype);
-        $this->firstname = $firstname;
-        $this->lastname = $lastname;
-        $this->postcount = $postcount;
-        $this->commentcount = $commentcount;
-        $this->profileImg = $profileImg;
+        $this->firstname = $_POST['firstname'];
+        $this->lastname = $_POST['lastname'];
+        $this->profileImg = $_POST['profileImg'];
+    }
+
+    public function __sanitise() {
+        parent::__sanitise();
+        $this->firstname = filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_SPECIAL_CHARS);
+        $this->lastname = filter_input(INPUT_POST, 'surname', FILTER_SANITIZE_SPECIAL_CHARS);
+        $this->profileImg; //insert code for image upload if sanitising is needed
     }
 
 }

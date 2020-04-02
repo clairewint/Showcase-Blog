@@ -6,9 +6,9 @@
  * @author Claire Winterbottom
  */
 class Subscriber extends Users{
-Private $commentcount = 0; //I've set this to 0 as this won't be art of the information included when creating a new Blogger object,
-                            //but I;m unsure if we should remove it as a property?
-
+Private static $commentcount; //Making this attributes static means they don't need an object to be created in order to be used.
+                                    //This means we can make the info submited on the registration page 
+                                    //match the attributes needed in the constructor. 
 function getCommentcount() {
     return $this->commentcount;
 }
