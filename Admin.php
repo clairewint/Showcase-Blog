@@ -25,11 +25,15 @@ class Admin extends Users {
         $this->lastname = $lastname;
     }
 
-    function __construct($firstname, $lastname) {
-        parent::__construct($username, $password, $email, $usertype);
-        $this->firstname = $firstname;
-        $this->lastname = $lastname;
+    function __construct() {
+        parent::__construct();
+        $this->firstname = $_POST['firstname'];
+        $this->lastname = $_POST['lastname'];
     }
 
-
+    public function __sanitise() {
+        parent::__sanitise();
+        $this->firstname = filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_SPECIAL_CHARS);
+        $this->lastname = filter_input(INPUT_POST, 'surname', FILTER_SANITIZE_SPECIAL_CHARS);
+    }
 }

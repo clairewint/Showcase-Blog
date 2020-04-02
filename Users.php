@@ -1,7 +1,8 @@
 <?php
 
 /**
- * User class is parent of Admin class, Blogger class and Subscriber class
+ * User class is parent of Admin class, Blogger class and Subscriber class.
+ * When a new user object is created through the registration form, the $_POST data should be directed here for sanitizing 
  *
  * @author Claire Winterbottom
  */
@@ -44,12 +45,19 @@ abstract class Users {
         $this->usertype = $usertype;
     }
 
-    function __construct($username, $password, $email, $usertype) {
-        $this->username = $username;
-        $this->password = $password;
-        $this->email = $email;
-        $this->usertype = $usertype;
+    function __construct() {
+        $this->username = $_POST['username'];
+        $this->password = $_POST['password'];
+        $this->email = $_POST['email'];
+        $this->usertype = $_POST['usertype'];
     }
 
-    
+    public function __sanitise() { //can this be combined with the constructor? Am I repeating the bringing on of the $_POST data?
+        $this->username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
+        $this->password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+                $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+        $this->email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_SPECIAL_CHARS);
+        $this->usertype = filter_input(INPUT_POST, 'lib_code', FILTER_SANITIZE_SPECIAL_CHARS);
+    }
+
 }
