@@ -48,7 +48,7 @@ Author Claire Winterbottom
              </form>
          
               <div class="login_create-acc">
-                  <button type="submit" value="register" class="login_register" id="create"> <a href="registration.php" class="login_registeracc">CREATE ACCOUNT</a></button>
+                  <button type="submit" value="register" class="login_register" id="create"> <a href="registrationView.php" class="login_registeracc">CREATE ACCOUNT</a></button>
               </div>
 
 
