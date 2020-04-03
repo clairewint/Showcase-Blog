@@ -8,7 +8,8 @@
     <head>
         <meta charset="UTF-8">
         <title>The Awesome Isolation Blog</title>
-        <link rel=stylesheet href="blog-section.css">
+        <link rel=stylesheet href="CSS/blog-section.css">
+        <link rel=stylesheet href="CSS/comment-section.css">
         <link rel=stylesheet href="CSS/site-wide.css">
         <link href="https://fonts.googleapis.com/css2?family=Cabin&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -80,10 +81,17 @@
                 <iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/<?php echo $blog['blog_VIDEO']?>" frameborder="none" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                    </div> 
         
+        
+        
+        
+        
+
        <!----end of content-wrap div---------------------------------------------------------------->
             </div> 
         
-        
+        <?php
+            include 'commentView.php';
+            ?>   
         
         <!----Including the footer------------------------------------------------------------------>   
             <?php
