@@ -1,14 +1,9 @@
 <!DOCTYPE html>
-<!--
-Author Claire Winterbottom
--->
-
-
 <html>
     <head>
         <meta charset="UTF-8">
         <title>The Awesome Isolation Blog</title>
-        <link rel=stylesheet href="CSS/login-registration.css">
+        <!--SECTION STYLESHEET GOES HERE----><link rel=stylesheet href="">
         <link rel=stylesheet href="CSS/site-wide.css">
         <link href="https://fonts.googleapis.com/css2?family=Cabin&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -20,43 +15,52 @@ Author Claire Winterbottom
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
     </head>
     <body>
-
+        
+        <!----page-container - This is the container that wraps the whole page including header and footer---->
         <div id="page-container">
+            
+            
+            
+            
+        <!----Including the header / navigation menu------------------------------------------------->    
             <?php
             include 'header.php';
             ?>
-            <div id="content-wrap">
-         <div class= "login_login-container">
-             <div class ="login_welcome">
-             <h1 class="login_sign-in">SIGN IN</h1>
-             <p class="login_message">Welcome back to The Awesome Isolation Blog! <br> Sign in to comment or write a blog. <br> </p>
-         </div> 
-         
-          
         
-             <form action= "" method="post" id=form1> 
-
-         
-                 <input id="email" class="shadow-sm p-3 mb-5 bg-white rounded form" placeholder="Email" name="email" pattern="[a-z0-9._%+-]+@[a-z]+.com" autofocus required>
-                 <span class="error"></span>
-                 <input type= "password" id="password"  class="shadow-sm p-3 mb-5 bg-white rounded form" placeholder="Password" name="password"  required> 
-                   <div><?php // echo $loginMsg; ?></div>
-                   <p class="login_forgotten-pass"><a href="">Forgotten your password?</a></p>
-                   
-
-                 <button type="submit" id="submit" value="submit" form="form1" name='login' class="form">LOG IN</button>    
-             </form>
-         
-              <div class="login_create-acc">
-                  <button type="submit" value="register" class="login_register" id="create"> <a href="registration.php" class="login_registeracc">CREATE ACCOUNT</a></button>
-              </div>
-
-
-         </div>
-                </div>
-       <?php
+        
+        
+        
+        <!----content-wrap  - this is the container that holds just the content, minus the header & footer--->
+            <div id="content-wrap">
+                
+                
+                
+                
+        <!----intro-section  - if needed. This is where the page title and subheading go------------>        
+                <section class="intro-section">
+                </section>
+        
+        
+        
+        
+        
+        <!----main-section  - if needed. This is where the rest of the page content goes------------> 
+                <section class="main-section">
+                </section>
+            
+        
+        
+       <!----end of content-wrap div---------------------------------------------------------------->
+            </div> 
+        
+        
+        
+        <!----Including the footer------------------------------------------------------------------>   
+            <?php
             include 'footer.php';
             ?>   
         </div>
+
     </body>
+
 </html>

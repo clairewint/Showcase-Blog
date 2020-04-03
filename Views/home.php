@@ -3,7 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <title>The Awesome Isolation Blog</title>
-        <link rel=stylesheet href="stylesheet.css">
+        <link rel=stylesheet href="CSS/home.css">
+        <link rel=stylesheet href="CSS/site-wide.css">
         <link href="https://fonts.googleapis.com/css2?family=Cabin&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"  crossorigin="anonymous"></script>
@@ -73,6 +74,10 @@
 
 
                 </section>
+ 
+
+
+            
 
             </div>               
 
