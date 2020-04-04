@@ -6,6 +6,8 @@
 	$user_id = 1;
         
 
+        
+        
 
         // get post with id 1 from database
 //            if (!isset($_GET['id']))
@@ -49,13 +51,16 @@
 	function getRepliesByCommentId($id)
 	{
 		$replies= Comments::getReplies($id);
+
                 return $replies;       
 	}
         
         
         
 	// Receives a post id and returns the total number of comments on that post
-       
+        
+        
+        
 //	function getCommentsCountByPostId($_GET['id'])
 //	{ $data= Comments::getCommentsCount($id);
 //        return $data;
@@ -75,6 +80,8 @@ if (isset($_POST['comment_posted'])) {
 	// grab the comment that was submitted through Ajax call
 	$comment_text = $_POST['comment_text'];
         
+        	
+    
         
 	// insert comment into database
 	  $request = $db->prepare('INSERT INTO Comments (blog_ID, user_ID, comm_TXT) VALUES (1, :id, :text)');

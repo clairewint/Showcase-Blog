@@ -13,10 +13,10 @@
 
         <ul class="menu">
             <div id="menu-left">
-                <li><a id="item-1" href="#family">FAMILY</a></li>
-                <li><a id="item-2" href="#search">FOOD</a></li>
-                <li><a  id="item-3"href="#search">KEEP FIT</a></li>
-                <li> <a  id="item-4"href="#search">CRAFT</a></li>
+                <li><a id="item-1" href="/Showcase-Blog/Views/blogCatView.php?tag=family">FAMILY</a></li>
+                <li><a id="item-2" href="/Showcase-Blog/Views/blogCatView.php?tag=food">FOOD</a></li>
+                <li><a  id="item-3"href="/Showcase-Blog/Views/blogCatView.php?tag=fitness">KEEP FIT</a></li>
+                <li> <a  id="item-4"href="/Showcase-Blog/Views/blogCatView.php?tag=craft">CRAFT</a></li>
             </div>
             <div id="menu-right">
                 <li><a  id="item-5"href="">My Account</a></li>

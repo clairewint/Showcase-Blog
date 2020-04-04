@@ -30,6 +30,11 @@ $(document).ready(function(){
 		e.preventDefault();
 		// Get the comment id from the reply button's data-id attribute
 		var comment_id = $(this).data('id');
+                
+                
+                
+                
+                
 		// show/hide the appropriate reply form (from the reply-btn (this), go to the parent element (comment-details)
 		// and then its siblings which is a form element with id comment_reply_form_ + comment_id)
 		$(this).parent().siblings('form#comment_reply_form_' + comment_id).toggle(500);
@@ -57,5 +62,12 @@ $(document).ready(function(){
 				}
 			});
 		});
+                
+                
+                
+                
+                
+                
+                
 	});
 });

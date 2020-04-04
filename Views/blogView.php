@@ -124,19 +124,19 @@
 				<?php foreach ($comments as $comment): ?>
 				<!-- comment -->
 				<div class="comment clearfix">
-					<img src="profile.png" alt="" class="profile_pic">
+					<img src="images/profile.png" alt="" class="profile_pic">
 					<div class="comment-details">
 						<span class="comment-name"><?php echo getUsernameById($comment['user_ID']) ?></span>
 						
                                                 
                                         <!-- reply link -->        
 						<p><?php echo $comment['comm_TXT']; ?></p>
-						<a class="reply-btn" href="./Controllers/commentController.php" data-id="<?php echo $comment['comm_ID']; ?>">reply</a>
+						<a class="reply-btn" href="blogView.php" data-id="<?php echo $comment['comm_ID']; ?>">reply</a>
 					</div>
                                         
                                         
 					<!-- reply form -->
-                                        <form action="../Controllers/commentController.php" class="reply_form clearfix" id="comment_reply_form_<?php echo $comment['comm_ID'] ?>" data-id="<?php echo $comment['comm_ID']; ?>">
+                                        <form action="blogView.php" class="reply_form clearfix" id="comment_reply_form_<?php echo $comment['comm_ID'] ?>" data-id="<?php echo $comment['comm_ID']; ?>">
 						<textarea class="form-control" name="reply_text" id="reply_text" cols="30" rows="2"></textarea>
 						<button class="btn btn-primary btn-xs pull-right submit-reply">Submit reply</button>
 					</form>
@@ -148,9 +148,11 @@
 					<div class="replies_wrapper_<?php echo $comment['comm_ID']; ?>">
 						<?php if (isset($replies)): ?>
 							<?php foreach ($replies as $reply): ?>
-								<!-- reply -->
+								
+                                            
+                                            <!-- reply -->
 								<div class="comment reply clearfix">
-									<img src="profile.png" alt="" class="profile_pic">
+									<img src="images/profile.png" alt="" class="profile_pic">
 									<div class="comment-details">
 										<span class="comment-name"><?php echo getUsernameById($reply['ruser_ID']) ?></span>
 										
@@ -176,7 +178,7 @@
 <!-- Bootstrap Javascript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<script src="../Controllers/commentScripts.js"></script>
+<script src="../Controllers/commentScript.js"></script>
         </div>
        </div> 
         <!----Including the footer------------------------------------------------------------------>   
