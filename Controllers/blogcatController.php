@@ -5,7 +5,7 @@
    
    
    
- ////Get blogs by tag
+////GET ALL BLOGS BY GENRE TAG
    function getAllBlogsByTag(){
        
 //          if (!isset($_GET['tag']))
@@ -21,10 +21,14 @@ $tag=$_GET['tag'];
 //
 //     echo "errorrrrrrthere";
 //// }   
-   
-       
+  
    }
+
+  
    
+   
+   
+////GET A SPECIFIC SUBHEADING FOR THE CORRECT GENRE   
   function getCatSubheading(){
       $tag=$_GET['tag'];
       
@@ -43,7 +47,7 @@ $tag=$_GET['tag'];
   } 
     
    
-   
+////GET A SPECIFIC SUBTITLE FOR THE CORRECT GENRE
   function getCatSubtitle(){
       $tag=$_GET['tag'];
       
@@ -62,13 +66,7 @@ $tag=$_GET['tag'];
   } 
    
    
-   
-   
-   
-   
-   
-   
-
+////GET JUST A SECTION OF THE BLOG TEXT TO PREVIEW ON THE CATEGORY PAGE
 function getTextExcerpt(){
     $blogsByGenre=getAllBlogsByTag();
     $string= $blogsByGenre['0']->text;

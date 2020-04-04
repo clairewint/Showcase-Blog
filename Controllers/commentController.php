@@ -29,7 +29,7 @@
       echo "errorrrrrr";
 
       try{
-      $comments = Comments::getComments($blog['blog_ID']);
+      $comments = Comments::getComments($blog->id);
       }
       catch (Exception $ex){
       echo "errorrrrrr";

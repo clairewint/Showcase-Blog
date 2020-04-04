@@ -39,6 +39,13 @@ list-style: none;
 display:inline-block;
 }
 
+.dot{
+    padding-left:10px;
+    padding-right:10px;
+    color:#f9bb26;
+}
+
+
 .blog-text{
     width:100%;
         padding-right:120px;

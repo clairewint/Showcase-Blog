@@ -28,7 +28,7 @@ class Blog {
         $this->commentno = $commentno;
     }
 
-    // FUNCTION TO 3 MOST RECENT BLOGS BY A GENRE, AND STORE AS AN ARRAY
+    // FUNCTION TO 3 MOST RECENT BLOGS BY A GENRE, AND STORE AS AN ARRAY FOR BLOG CATEGORY PAGE
     public static function getAllFromTag($tag) {
         $db = Db::getInstance();
         $blogtag = ucfirst($tag);
@@ -37,44 +37,29 @@ class Blog {
         if ($blogtag === "Food") {
             $req = $db->query("SELECT * FROM blog_posts WHERE genre_TAG = 'Food' ORDER BY date_PUB DESC LIMIT 3");
 
-            //$req->bindParam(':tag', $tag);
-
-
             foreach ($req->fetchAll() as $blog) {
                 $list[] = new Blog(
                         $blog['blog_ID'], $blog['genre_TAG'], $blog['user_ID'], $blog['blog_TITLE'], $blog['blog_TXT'], $blog['blog_IMG'], $blog['blog_VIDEO'], $blog['blog_STATUS'], $blog['date_PUB'], $blog['comm_COUNT']);
             }
             return $list;
-            
         } elseif ($blogtag === "Family") {
             $req = $db->query("SELECT * FROM blog_posts WHERE genre_TAG = 'Family' ORDER BY date_PUB DESC LIMIT 3");
 
-            //$req->bindParam(':tag', $tag);
-
-
             foreach ($req->fetchAll() as $blog) {
                 $list[] = new Blog(
                         $blog['blog_ID'], $blog['genre_TAG'], $blog['user_ID'], $blog['blog_TITLE'], $blog['blog_TXT'], $blog['blog_IMG'], $blog['blog_VIDEO'], $blog['blog_STATUS'], $blog['date_PUB'], $blog['comm_COUNT']);
             }
             return $list;
-            
         } elseif ($blogtag === "Fitness") {
             $req = $db->query("SELECT * FROM blog_posts WHERE genre_TAG = 'Fitness' ORDER BY date_PUB DESC LIMIT 3");
 
-            //$req->bindParam(':tag', $tag);
-
-
             foreach ($req->fetchAll() as $blog) {
                 $list[] = new Blog(
                         $blog['blog_ID'], $blog['genre_TAG'], $blog['user_ID'], $blog['blog_TITLE'], $blog['blog_TXT'], $blog['blog_IMG'], $blog['blog_VIDEO'], $blog['blog_STATUS'], $blog['date_PUB'], $blog['comm_COUNT']);
             }
             return $list;
-            
         } elseif ($blogtag === "Craft") {
             $req = $db->query("SELECT * FROM blog_posts WHERE genre_TAG = 'Craft' ORDER BY date_PUB DESC LIMIT 3");
-
-            //$req->bindParam(':tag', $tag);
-
 
             foreach ($req->fetchAll() as $blog) {
                 $list[] = new Blog(
@@ -84,36 +69,44 @@ class Blog {
         }
     }
 
+    //FUNCTION TO RETRIEVE AN INDIVIDUAL BLOG POST
+    public static function find($id) {
 
+        $db = Db::getInstance();
 
+        $id = intval($id);
+        $req = $db->prepare('SELECT * FROM blog_posts WHERE blog_ID = :id');
+        $req->execute(array('id' => $id));
+        $blog = $req->fetch();
+        
+        if($blog){
+      return new Blog($blog['blog_ID'], $blog['genre_TAG'], $blog['user_ID'], $blog['blog_TITLE'], $blog['blog_TXT'], $blog['blog_IMG'], $blog['blog_VIDEO'], $blog['blog_STATUS'], $blog['date_PUB'], $blog['comm_COUNT']);
+    }
+    else
+    {
+        //replace with a more meaningful exception
+        throw new Exception('A real exception should go here');
+    }
+    } 
+   
 
+  
+    ////GET AUTHOR NAME
 
-
-
-        //FUNCTION TO RETRIEVE A BLOG POST
-        public static function find($id) {
-
-            $db = Db::getInstance();
-
-            $id = intval($id);
-            $req = $db->prepare('SELECT * FROM blog_posts WHERE blog_ID = :id');
-            //the query was prepared, now replace :id with the actual $id value
-            $req->execute(array('id' => $id));
-            $blog = $req->fetch();
-            return $blog;
-        }
-
-
-
-
-
-
-
-
-
-
-
-
+    public static function getAuthor($id){
+    $db = Db::getInstance();
+     
+    $blog=self::find($id);
+    $userid=$blog->userid;
+    $req = $db->prepare('SELECT user_FN, user_LN FROM Users WHERE user_ID = :id');
+    $req->execute(array('id' => $userid));
+    $author = $req->fetchAll();
+    return $author;
+    } 
+    
+    
+     }
+    
 //    //FUNCTION TO UPDATE / EDIT BLOG POSTS
 //    public static function update($id) {
 //        $db = Db::getInstance();
@@ -226,8 +219,7 @@ class Blog {
 //        $req->execute(array('id' => $id));
 //    }
 //
-    }
 
-?><?php
 
-    
+?>
+

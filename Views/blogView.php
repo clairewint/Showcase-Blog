@@ -1,6 +1,6 @@
   <?php 
  include_once '../Controllers/blogController.php';
- include_once '../Controllers/commentController.php';
+// include_once '../Controllers/commentController.php';
   ?>
 
 
@@ -20,6 +20,8 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+        <script src="https://use.fontawesome.com/28474cfa36.js"></script>
+        
     </head>
     <body>
         
@@ -49,17 +51,18 @@
                    
        
               <div class="blog-image"> 
-                <img class="blog-image-image" src="../<?php echo $blog['blog_IMG'] ?>" alt="" >
+                <img class="blog-image-image" src="../<?php $blog=getBlogPost();echo $blog->img ?>" alt="" >
                    </div> 
                       
                       <div class="blog-header">
-                         <div class="title">   <h1><?php echo $blog['blog_TITLE'] ?></h1>
+                         <div class="title">   <h1><?php echo $title=$blog->title ?></h1>
                     </div> 
                     <div class="blog-details"> 
                         <ul class="blog-details-list">
-                            <li> <p class="date"><?php echo $blog['date_PUB'] ?></p></li>
-                            <li> <p class="date"><?php echo $blog['genre_TAG'] ?></p></li>
-                            <li> <p class="date"><?php echo $blog['user_ID'] ?></p></li>
+                             <li> <p class="date">By <?php echo $authorname=getAuthor();?><span class="dot">&#9679</span></i></i></p></li>
+                            <li> <p class="date">Published <?php $blog=getBlogPost();echo $blog->date ?><span class="dot">&#9679</span></i></i></p></li>
+                            <li> <p class="date"><?php $blog=getBlogPost();echo $blog->genre ?></p></li>
+                           
                 </ul>
             </div></div>
                 </section>
@@ -72,14 +75,14 @@
                 <section class="main-section">
                        
                     <div class="blog-text">  
-                <p><?php echo $blog['blog_TXT'] ?></p> 
+                <p><?php $blog=getBlogPost();echo $blog->text ?></p> 
                 </div>  
                     
                    
                 </section>
             
          <div class="video-block"> 
-                <iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/<?php echo $blog['blog_VIDEO']?>" frameborder="none" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/<?php $blog=getBlogPost();echo $blog->video ?>" frameborder="none" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                    </div> 
         
         
