@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <title>The Awesome Isolation Blog</title>
-        <link rel=stylesheet href="stylesheet.css">
+        <link rel=stylesheet href="CSS/stylesheet.css">
         <link href="https://fonts.googleapis.com/css2?family=Cabin&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"  crossorigin="anonymous"></script>
@@ -18,14 +18,34 @@
     <body>
         <?php
         include 'header.php';
-        include 'footer.php';
-        include 'search-program.php';
+        include '../search-program.php';
         ?>
 
         <div class="flex-container">
-            <h1>Echo 'search results for [search query text]</h1>
-            <p>jdkqjdjdhqldwhlqkwdhlqkwdhlqkdhlqkwdhnqlkdhnqlkdnql</p>
+                <section class="intro-section"> 
+            <div>
+            <h1>Search results</h1>
+            <p>
+                </section> 
+            <?php
+            if (count($results) > 0) {
+            echo "<b>Your results are as follows:</b><br>"; 
+            foreach ($results as $r) {
+            printf($r['blog_TITLE'] . "<br>");
+            }
+            } else {
+            echo "No results found, try again." . "<br>";
+            }
+           
+            ?>
+            </p>
+            </div>
+
+            
         </div>
+        <?php
+        include 'footer.php';
+        ?>
 
     </body>
 </html>
