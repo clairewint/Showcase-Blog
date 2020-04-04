@@ -8,7 +8,7 @@
         <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
 
         <div class="logo">
-            <a href=""><img src="images/blog-logo-long.png" alt="logo" style="width:175px;border:0;"></a>
+            <a href="/Showcase-Blog/Views/home.php"><img src="images/blog-logo-long.png" alt="logo" style="width:175px;border:0;"></a>
         </div>
 
         <ul class="menu">
