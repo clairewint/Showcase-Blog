@@ -1,77 +1,70 @@
 <?php 
-include 'connection.php';
+  include_once '../Models/comments.php'; 
 	// Set logged in user id: This is just a simulation of user login. We haven't implemented user log in
 	// But we will assume that when a user logs in, 
 	// they are assigned an id in the session variable to identify them across pages
 	$user_id = 1;
         
-        $db = Db::getInstance();
-	
 
 
         // get post with id 1 from database
-
-        $req = $db->prepare('SELECT * FROM blog_posts WHERE blog_ID=1');
-        //the query was prepared, now replace :id with the actual $id value
-        $req->execute();
-        $comments = $req->fetch();
+//            if (!isset($_GET['id']))
+//      echo "errorrrrrr";
+//
+//      try{
+      $blog = Comments::getBlog($_GET['id']);
+      require_once('../Views/blogView.php');
+//      }
+//      catch (Exception $ex){
+//      echo "errorrrrrr";
+//      }
     
         
         
+    // Get all comments from database
         
-        
-	// Get all comments from database
-        
-        $req = $db->prepare('SELECT * FROM Comments WHERE blog_ID=1');
-        //the query was prepared, now replace :id with the actual $id value
-        $req->execute();
-        $comments = $req->fetchAll();
+                if (!$blog)
+      echo "errorrrrrr";
+
+      try{
+      $comments = Comments::getComments($blog['blog_ID']);
+      }
+      catch (Exception $ex){
+      echo "errorrrrrr";
+      }
       
         
 
 	// Receives a user id and returns the username
-	function getUsernameById($id)
-	{
-		global $db;
+        
+      function getUsernameById($id)
+	{ $userid = $id;
+              $username= Comments::getUsername($id);
+        return $username;
                 
-                $req = $db->prepare('SELECT user_UN FROM Users WHERE user_ID=:id LIMIT 1');
-		$req->execute(array('id' => $id));
-                $username = $req->fetch();
-                
-		// return the username
-		return $username['user_UN'];
-	}
-        
-        
-        
-        
-        
+        }
+
+
 	// Receives a comment id and returns the username
 	function getRepliesByCommentId($id)
 	{
-		global $db;
-                
-                $req = $db->prepare('SELECT * FROM Replies WHERE comm_ID=:id');
-		$req->execute(array('id' => $id));
-                $replies = $req->fetchAll();
-                return $replies;
-                
+		$replies= Comments::getReplies($id);
+                return $replies;       
 	}
+        
+        
+        
 	// Receives a post id and returns the total number of comments on that post
-	function getCommentsCountByPostId($blog_ID)
-	{
-		global $db;
-                
-                $req = $db->prepare('SELECT COUNT(*) AS total FROM Comments');
-		$req->execute();
-                $data = $req->fetch();
-                return $data['total'];
-                
-	}
+       
+//	function getCommentsCountByPostId($_GET['id'])
+//	{ $data= Comments::getCommentsCount($id);
+//        return $data;
+//                
+//	}
         
         
         
-        //...
+      
 // If the user clicked submit on comment form...
         
 if (isset($_POST['comment_posted'])) {
@@ -82,8 +75,6 @@ if (isset($_POST['comment_posted'])) {
 	// grab the comment that was submitted through Ajax call
 	$comment_text = $_POST['comment_text'];
         
-        	
-    
         
 	// insert comment into database
 	  $request = $db->prepare('INSERT INTO Comments (blog_ID, user_ID, comm_TXT) VALUES (1, :id, :text)');
