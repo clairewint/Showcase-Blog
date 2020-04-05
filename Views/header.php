@@ -3,7 +3,8 @@
 <?php
     if (isset($_POST['search'])) {
     require_once "../search-program.php";
-}
+}  
+    include "../Controllers/headerController.php";
 ?>
     <header class="header">
 
@@ -23,7 +24,7 @@
             </div>
             <div id="menu-right">
                 <li><a  id="item-5"href="">My Account</a></li>
-                <li><a id="log-in"  href="loginView.php"> Log in </a></li>
+                <li><a id="log-in"  href="<?php echo $loginAction=getLoginAction();?>"><?php echo $loginText=getLoginText();?></a></li>
                 <li>
                     <form method="post" action="search-page.php" name="search" class="search-bar">
                         <input type="text" name="search" placeholder="search...">
