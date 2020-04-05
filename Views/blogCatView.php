@@ -12,10 +12,7 @@ include_once '../Controllers/blogcatController.php';
         <link rel=stylesheet href="CSS/home.css">
         <link href="https://fonts.googleapis.com/css2?family=Cabin&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"  crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="http://code.jquery.com/jquery-1.8.3.min.js "  crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
     </head>
@@ -42,9 +39,13 @@ include_once '../Controllers/blogcatController.php';
                 <section class="main-section">
 
 
-
-                    <div class="card">
-                        <a href="#"> </a>
+        <table class="card-section">
+                        <tr>
+                            <td>
+                                  <div class="card">
+                        <a href="/showcase-blog/Views/blogView.php?id=<?php $blogsByGenre = getAllBlogsByTag($_GET['tag']);
+            echo $blogsByGenre['0']->id
+                    ?>" class="whole-card-link">
                         <img  class="card-img-top" alt="..." src="/showcase-blog/<?php $blogsByGenre = getAllBlogsByTag($_GET['tag']);
             echo $blogsByGenre['0']->img ?>"/> 
                         <div class="card-body">
@@ -56,14 +57,18 @@ include_once '../Controllers/blogcatController.php';
                                 echo $excerpt = substr($string, 0, 100);?></p>
                             <a href="/showcase-blog/Views/blogView.php?id=<?php $blogsByGenre = getAllBlogsByTag($_GET['tag']);
                                 echo $blogsByGenre['0']->id ?>" class="card-link">Read more</a>
-                        </div>
+                        </div></a>
 
-                    </div>
-
-
+                    </div></td>
 
 
-                    <div class="card" >
+
+
+                            <td>
+                                   <div class="card" >
+                                       <a href="/showcase-blog/Views/blogView.php?id=<?php $blogsByGenre = getAllBlogsByTag($_GET['tag']);
+            echo $blogsByGenre['1']->id
+                    ?>" class="whole-card-link">
                         <img class="card-img-top" alt="..." src="/showcase-blog/<?php $blogsByGenre = getAllBlogsByTag($_GET['tag']);
                                 echo $blogsByGenre['1']->img ?>"/> 
                         <div class="card-body">
@@ -75,13 +80,16 @@ include_once '../Controllers/blogcatController.php';
                                 echo $excerpt = substr($string, 0, 100);?></p>
                             <a href="/showcase-blog/Views/blogView.php?id=<?php $blogsByGenre = getAllBlogsByTag($_GET['tag']);
                                 echo $blogsByGenre['1']->id ?>" class="card-link">Read more</a>
-                        </div>
-                    </div>
+                        </div></a>
+                    </div></td>
+                    
+                    
+                    
 
-
-
-
-                    <div class="card">
+                            <td>   <div class="card">
+                                    <a href="/showcase-blog/Views/blogView.php?id=<?php $blogsByGenre = getAllBlogsByTag($_GET['tag']);
+            echo $blogsByGenre['2']->id
+                    ?>" class="whole-card-link">
                         <img class="card-img-top" alt="..." src="/showcase-blog/<?php $blogsByGenre = getAllBlogsByTag($_GET['tag']);
                                 echo $blogsByGenre['2']->img ?>"/> 
                         <div class="card-body">
@@ -93,8 +101,12 @@ include_once '../Controllers/blogcatController.php';
                                 echo $excerpt = substr($string, 0, 100);?></p>
                             <a href="/showcase-blog/Views/blogView.php?id=<?php $blogsByGenre = getAllBlogsByTag($_GET['tag']);
                                 echo $blogsByGenre['2']->id ?>">Read more</a>
-                        </div>
-                    </div>
+                        </div></a>
+                    </div></td>
+                        </tr>            
+                    </table>            
+                    
+
                 </section>
             </div>               
 
@@ -104,6 +116,36 @@ include 'footer.php';
 ?>   
         </div>
 
+         <script>
+                $('.card')
+                        .on('mouseenter', function () {
+                            var div = $(this);
+                            div.stop(true, true).animate({
+                                margin: -10,
+                                width: "+=10",
+                                height: "+=10"
+                            }, 'fast');
+                        })
+                        .on('mouseleave', function () {
+                            var div = $(this);
+                            div.stop(true, true).animate({
+                                margin: 0,
+                                width: "-=10",
+                                height: "-=10"
+                            }, 'fast');
+                        })
+            </script>    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
     </body>
 
