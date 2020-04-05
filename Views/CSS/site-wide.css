@@ -68,6 +68,17 @@ h1, h6{font-family: 'Cabin', sans-serif;
 p{ font-family: 'Open Sans', sans-serif;   
 }
 
+.whole-card-link {
+    text-decoration:none;
+    color:black;
+}
+
+.whole-card-link:hover{
+    text-decoration:none;
+    color:black;
+}
+
+
 
 
 /****** header *******/

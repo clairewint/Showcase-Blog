@@ -8,9 +8,10 @@
     padding-top: 230px;
     padding-left:80px;
     width:100%;
-    padding-bottom:50px;
     background-color: white;
 }
+
+
 
 .main-section{
     padding-top:50px;
@@ -19,7 +20,16 @@
     flex-direction: column;
     align-items: flex-start;
     overflow: hidden;
+    margin-bottom:80px;
 }
+
+table.card-section{
+    table-layout: fixed; width:100%; border-collapse: collapse;
+}
+
+table td {  vertical-align: top; width:440px;height:480px; position: relative; padding:10px;}
+
+
 
 @media screen and (min-width: 60em){
     .main-section{ 
@@ -29,6 +39,7 @@
         flex-direction: row;
         align-items: flex-start;
         overflow: hidden;
+        margin-bottom:80px;
     }    
 }
 
@@ -60,3 +71,4 @@
 .view-all ul{
     padding:0;
 }
+
