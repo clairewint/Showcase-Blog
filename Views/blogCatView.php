@@ -36,116 +36,83 @@ include_once '../Controllers/blogcatController.php';
 
                     </ul>
                 </div>
-                <section class="main-section">
+               <div class="table-container" role="table" aria-label="">
+      <div class="flex-table row" role="rowgroup">  
+     
+      
+      
+      <?php $blogsByGenre = getAllBlogsByTag($_GET['tag']);
 
-
-        <table class="card-section">
-                        <tr>
-                            <td>
-                                  <div class="card">
-                        <a href="/showcase-blog/Views/blogView.php?id=<?php $blogsByGenre = getAllBlogsByTag($_GET['tag']);
-            echo $blogsByGenre['0']->id
-                    ?>" class="whole-card-link">
-                        <img  class="card-img-top" alt="..." src="/showcase-blog/<?php $blogsByGenre = getAllBlogsByTag($_GET['tag']);
-            echo $blogsByGenre['0']->img ?>"/> 
+      foreach ($blogsByGenre as $genreBlog): ?>
+    
+        
+        <!-----one------->
+        <div class="flex-row" role="cell"><div class="card">
+                        <a href="/showcase-blog/Views/blogView.php?id=<?php echo $genreBlog->id?>" class="whole-card-link">
+                        <img  class="card-img-top" alt="..." src="/showcase-blog/<?php echo $genreBlog->img ?>"/> 
                         <div class="card-body">
-                            <h4 class="card-title"><?php $blogsByGenre = getAllBlogsByTag($_GET['tag']);
-            echo $blogsByGenre['0']->title ?><?php $blogsByGenre = getAllBlogsByTag($_GET['tag']); ?></h4>
+                            <h4 class="card-title"><?php echo $genreBlog->title ?></h4>
                             <p class="card-text"><?php
-                                $blogsByGenre = getAllBlogsByTag($_GET['tag']);
-                                $string = $blogsByGenre['0']->text;
+                                $string = $genreBlog->text;
                                 echo $excerpt = substr($string, 0, 100);?></p>
-                            <a href="/showcase-blog/Views/blogView.php?id=<?php $blogsByGenre = getAllBlogsByTag($_GET['tag']);
-                                echo $blogsByGenre['0']->id ?>" class="card-link">Read more</a>
+                            <a href="/showcase-blog/Views/blogView.php?id=<?php
+                                echo $genreBlog->id ?>" class="card-link">Read more</a>
                         </div></a>
 
-                    </div></td>
-
-
-
-
-                            <td>
-                                   <div class="card" >
-                                       <a href="/showcase-blog/Views/blogView.php?id=<?php $blogsByGenre = getAllBlogsByTag($_GET['tag']);
-            echo $blogsByGenre['1']->id
-                    ?>" class="whole-card-link">
-                        <img class="card-img-top" alt="..." src="/showcase-blog/<?php $blogsByGenre = getAllBlogsByTag($_GET['tag']);
-                                echo $blogsByGenre['1']->img ?>"/> 
-                        <div class="card-body">
-                            <h4 class="card-title"><?php $blogsByGenre = getAllBlogsByTag($_GET['tag']);
-                                echo $blogsByGenre['1']->title ?></h4>
-                            <p class="card-text"><?php
-                                $blogsByGenre = getAllBlogsByTag($_GET['tag']);
-                                $string = $blogsByGenre['1']->text;
-                                echo $excerpt = substr($string, 0, 100);?></p>
-                            <a href="/showcase-blog/Views/blogView.php?id=<?php $blogsByGenre = getAllBlogsByTag($_GET['tag']);
-                                echo $blogsByGenre['1']->id ?>" class="card-link">Read more</a>
-                        </div></a>
-                    </div></td>
-                    
-                    
+                    </div></div>
+  
+    
+    
+    
+    
+      <?php endforeach; ?>
+    
+      </div> 
+      
+  
+</div>
+                   
                     
 
-                            <td>   <div class="card">
-                                    <a href="/showcase-blog/Views/blogView.php?id=<?php $blogsByGenre = getAllBlogsByTag($_GET['tag']);
-            echo $blogsByGenre['2']->id
-                    ?>" class="whole-card-link">
-                        <img class="card-img-top" alt="..." src="/showcase-blog/<?php $blogsByGenre = getAllBlogsByTag($_GET['tag']);
-                                echo $blogsByGenre['2']->img ?>"/> 
-                        <div class="card-body">
-                            <h4 class="card-title"><?php $blogsByGenre = getAllBlogsByTag($_GET['tag']);
-                                echo $blogsByGenre['2']->title ?></h4>
-                            <p class="card-text"><?php
-                                $blogsByGenre = getAllBlogsByTag($_GET['tag']);
-                                $string = $blogsByGenre['2']->text;
-                                echo $excerpt = substr($string, 0, 100);?></p>
-                            <a href="/showcase-blog/Views/blogView.php?id=<?php $blogsByGenre = getAllBlogsByTag($_GET['tag']);
-                                echo $blogsByGenre['2']->id ?>">Read more</a>
-                        </div></a>
-                    </div></td>
-                        </tr>            
-                    </table>            
-                    
 
-                </section>
+
+
+
+
+
+
+                   
+
+           
+ 
+ 
+
+  
             </div>               
 
-
-<?php
-include 'footer.php';
-?>   
+            <script>
+$('.card')
+    .on('mouseenter', function(){
+        var div = $(this);
+        div.stop(true, true).animate({ 
+            margin: -10,
+            width: "+=10",
+            height: "+=10"
+        }, 'fast');
+    })
+    .on('mouseleave', function(){
+        var div = $(this);
+        div.stop(true, true).animate({ 
+            margin: 0,
+            width: "-=10",
+            height: "-=10"
+        }, 'fast');
+    })
+</script>
+            <?php
+            include 'footer.php';
+            ?>   
         </div>
-
-         <script>
-                $('.card')
-                        .on('mouseenter', function () {
-                            var div = $(this);
-                            div.stop(true, true).animate({
-                                margin: -10,
-                                width: "+=10",
-                                height: "+=10"
-                            }, 'fast');
-                        })
-                        .on('mouseleave', function () {
-                            var div = $(this);
-                            div.stop(true, true).animate({
-                                margin: 0,
-                                width: "-=10",
-                                height: "-=10"
-                            }, 'fast');
-                        })
-            </script>    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
 
     </body>
 

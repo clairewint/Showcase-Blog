@@ -38,12 +38,17 @@ include_once '../Controllers/blogcatController.php';
                     </ul>
                 </div>
 
-                <section class="main-section">
+                
+                
+                
+                
+             
+  <div class="table-container" role="table" aria-label="">
+      <div class="flex-table row" role="rowgroup">  
                     
                     
-                    <table class="card-section">
-                        <tr>
-                            <td>
+             
+          <div class="flex-row" role="cell">
                                 <div class="card">
                                     <a href="/showcase-blog/Views/blogView.php?id=<?php $blogsByGenre = getAllBlogsByTag('Food');
             echo $blogsByGenre['0']->id
@@ -65,12 +70,12 @@ include_once '../Controllers/blogcatController.php';
                                         </div>
                                     </a>
 
-                                </div></td>
+                                </div></div>
 
 
 
 
-                            <td>
+          <div class="flex-row" role="cell">
                                 <div class="card" >
                                     <a href="/showcase-blog/Views/blogView.php?id=<?php $blogsByGenre = getAllBlogsByTag('Food');
             echo $blogsByGenre['1']->id
@@ -91,9 +96,10 @@ include_once '../Controllers/blogcatController.php';
                                             echo $blogsByGenre['1']->id
                                                 ?>" class="card-link">Read more</a>
                                     </div></a>
-                                </div></td>
+                                </div></div>
 
-                            <td> <div class="card">
+          <div class="flex-row" role="cell"> 
+              <div class="card">
                                     <a href="/showcase-blog/Views/blogView.php?id=<?php $blogsByGenre = getAllBlogsByTag('Food');
             echo $blogsByGenre['2']->id
                     ?>" class="whole-card-link">
@@ -113,13 +119,13 @@ include_once '../Controllers/blogcatController.php';
                                             echo $blogsByGenre['2']->id
                                                 ?>">Read more</a>
                                     </div></a>
-                                </div></td>
-                        </tr>            
-                    </table>
+                                </div></div>
+                      
+                    
 
-
-
-                </section>
+</div>
+  </div>
+              
 
 
                 <!-------------------------BLOG SECTION 2---------------------------> 
@@ -130,12 +136,11 @@ include_once '../Controllers/blogcatController.php';
                         <li> <a href="/Showcase-Blog/Views/blogCatView.php?tag=family"><p>View all <i class="fa fa-angle-right"></i></p></a></li> 
                     </ul>
                 </div>
+ <div class="table-container" role="table" aria-label="">
+      <div class="flex-table row" role="rowgroup"> 
 
-
-                <section class="main-section">
-                    <table class="card-section">
-                        <tr>
-                            <td>                    <div class="card">
+                <div class="flex-row" role="cell">                  
+                     <div class="card">
                                    <a href="/showcase-blog/Views/blogView.php?id=<?php $blogsByGenre = getAllBlogsByTag('Family');
             echo $blogsByGenre['0']->id
                     ?>" class="whole-card-link">
@@ -156,12 +161,12 @@ include_once '../Controllers/blogcatController.php';
                                                 ?>" class="card-link">Read more</a>
                                     </div></a>
 
-                                </div></td>
+                                </div></div> 
 
 
 
 
-                            <td>
+                <div class="flex-row" role="cell"> 
                                 <div class="card" >
                                     <a href="/showcase-blog/Views/blogView.php?id=<?php $blogsByGenre = getAllBlogsByTag('Family');
             echo $blogsByGenre['1']->id
@@ -182,11 +187,12 @@ include_once '../Controllers/blogcatController.php';
                                             echo $blogsByGenre['1']->id
                                                 ?>" class="card-link">Read more</a>
                                     </div>
-                                </div></td>
+                                </div></div> 
 
                                 
                                 
-                            <td>  <div class="card">
+                <div class="flex-row" role="cell"> 
+                                 <div class="card">
                                     <a href="/showcase-blog/Views/blogView.php?id=<?php $blogsByGenre = getAllBlogsByTag('Family');
             echo $blogsByGenre['2']->id
                     ?>" class="whole-card-link">
@@ -206,16 +212,9 @@ include_once '../Controllers/blogcatController.php';
                                             echo $blogsByGenre['2']->id
                                                 ?>">Read more</a>
                                     </div></a>
-                                </div></td>
-                        </tr>            
-                    </table>
-
-
-
-                </section>
-
-
-
+                                </div></div> 
+                        
+</div></div>
 
 
                 <!-------------------------BLOG SECTION 3--------------------------->            
@@ -226,12 +225,10 @@ include_once '../Controllers/blogcatController.php';
                         <li> <a href="/Showcase-Blog/Views/blogCatView.php?tag=craft"><p>View all <i class="fa fa-angle-right"></i></p></a></li> 
                     </ul>
                 </div>
-
-
-                <section class="main-section">
-                    <table class="card-section">
-                        <tr>
-                            <td>                       <div class="card">
+ <div class="table-container" role="table" aria-label="">
+      <div class="flex-table row" role="rowgroup"> 
+                <div class="flex-row" role="cell">                    
+                      <div class="card">
                                     <a href="/showcase-blog/Views/blogView.php?id=<?php $blogsByGenre = getAllBlogsByTag('Craft');
             echo $blogsByGenre['0']->id
                     ?>" class="whole-card-link">
@@ -252,12 +249,12 @@ include_once '../Controllers/blogcatController.php';
                                                 ?>" class="card-link">Read more</a>
                                     </div></a>
 
-                                </div></td>
+                                </div></div>  
 
 
 
 
-                            <td>
+                <div class="flex-row" role="cell">
 
                                 <div class="card" >
                                     <a href="/showcase-blog/Views/blogView.php?id=<?php $blogsByGenre = getAllBlogsByTag('Craft');
@@ -279,9 +276,12 @@ include_once '../Controllers/blogcatController.php';
                                            echo $blogsByGenre['1']->id
                                                 ?>" class="card-link">Read more</a>
                                     </div></a>
-                                </div></td>
+                                </div></div>  
 
-                            <td>    <div class="card">
+                
+                
+                <div class="flex-row" role="cell">   
+                                 <div class="card">
                                      <a href="/showcase-blog/Views/blogView.php?id=<?php $blogsByGenre = getAllBlogsByTag('Craft');
             echo $blogsByGenre['2']->id
                     ?>" class="whole-card-link">
@@ -301,14 +301,9 @@ include_once '../Controllers/blogcatController.php';
                                            echo $blogsByGenre['2']->id
                                                 ?>">Read more</a>
                                     </div></a>
-                                </div></td>
-                        </tr>            
-                    </table>
-
-
-
-                </section>
-
+                                </div></div> 
+                       
+</div></div>
 
 
                 <!-------------------------BLOG SECTION 4--------------------------->            
@@ -320,11 +315,9 @@ include_once '../Controllers/blogcatController.php';
                     </ul>
                 </div>
 
-
-                <section class="main-section">
-                    <table class="card-section">
-                        <tr>
-                            <td>                        
+ <div class="table-container" role="table" aria-label="">
+      <div class="flex-table row" role="rowgroup"> 
+                <div class="flex-row" role="cell">                         
                                 <div class="card">
  <a href="/showcase-blog/Views/blogView.php?id=<?php $blogsByGenre = getAllBlogsByTag('Fitness');
             echo $blogsByGenre['0']->id
@@ -346,12 +339,12 @@ include_once '../Controllers/blogcatController.php';
                                                 ?>" class="card-link">Read more</a>
                                     </div></a>
 
-                                </div></td>
+                                </div></div> 
 
 
 
 
-                            <td>
+                          <div class="flex-row" role="cell">  
 
                                 <div class="card" >
                                      <a href="/showcase-blog/Views/blogView.php?id=<?php $blogsByGenre = getAllBlogsByTag('Fitness');
@@ -373,9 +366,11 @@ include_once '../Controllers/blogcatController.php';
                                          echo $blogsByGenre['1']->id
                                                 ?>" class="card-link">Read more</a>
                                     </div></a>
-                                </div></td>
+                                </div></div> 
+                              
 
-                            <td>        <div class="card">
+                             <div class="flex-row" role="cell">     
+                                <div class="card">
                                     <a href="/showcase-blog/Views/blogView.php?id=<?php $blogsByGenre = getAllBlogsByTag('Fitness');
             echo $blogsByGenre['1']->id
                     ?>" class="whole-card-link">
@@ -395,16 +390,15 @@ include_once '../Controllers/blogcatController.php';
             echo $blogsByGenre['2']->id
                                                 ?>">Read more</a>
                                     </div></a>
-                                </div></td>
-                        </tr>            
-                    </table>
+                                </div></div> 
+                        
 
 
 
-                </section>
+             
+</div></div></div>
 
-
-            </div>               
+                        
 
             <script>
                 $('.card')
@@ -428,8 +422,8 @@ include_once '../Controllers/blogcatController.php';
 <?php
 include 'footer.php';
 ?>   
-        </div>
-
+        
+ </div>  
     </body>
 
 </html>

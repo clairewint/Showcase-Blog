@@ -35,7 +35,7 @@ class Blog {
         $list = [];
 
         if ($blogtag === "Food") {
-            $req = $db->query("SELECT * FROM blog_posts WHERE genre_TAG = 'Food' ORDER BY date_PUB DESC LIMIT 3");
+            $req = $db->query("SELECT * FROM blog_posts WHERE genre_TAG = 'Food' ORDER BY date_PUB DESC");
 
             foreach ($req->fetchAll() as $blog) {
                 $list[] = new Blog(
