@@ -1,63 +1,27 @@
 <?php
 
 /**
- * User class is parent of Admin class, Blogger class and Subscriber class.
- * When a new user object is created through the registration form, the $_POST data should be directed here for sanitizing 
- *
+This is the model file for login and registration, where database queries are performed
  * @author Claire Winterbottom
  */
-abstract class Users {
 
-    protected $username;
-    protected $password;
-    protected $email;
-    protected $usertype;
+include './connection.php';
 
-    function getUsername() {
-        return $this->username;
+
+if ( ! empty( $_POST ) ) {
+    if ( isset( $_POST['username'] ) && isset( $_POST['password'] ) ) {
+        // Getting submitted user data from database
+        
+        $con = Db::getInstance();
+        $stmt = $con->prepare("SELECT * FROM Users WHERE username = ?");
+        $stmt->bind_param('s', $_POST['username']);
+        $stmt->execute();
+        $result = $stmt->get_result();
+    	$user = $result->fetch_object();
+    		
+    	// Verify user password and set $_SESSION
+    	if ( password_verify( $_POST['password'], $user->password ) ) {
+    		$_SESSION['user_id'] = $user->ID;
+    	}
     }
-
-    function getPassword() {
-        return $this->password;
-    }
-
-    function getEmail() {
-        return $this->email;
-    }
-
-    function getUsertype() {
-        return $this->usertype;
-    }
-
-    function setUsername($username) {
-        $this->username = $username;
-    }
-
-    function setPassword($password) {
-        $this->password = $password;
-    }
-
-    function setEmail($email) {
-        $this->email = $email;
-    }
-
-    function setUsertype($usertype) {
-        $this->usertype = $usertype;
-    }
-
-    function __construct() {
-        $this->username = $_POST['username'];
-        $this->password = $_POST['password'];
-        $this->email = $_POST['email'];
-        $this->usertype = $_POST['usertype'];
-    }
-
-    public function __sanitise() { //can this be combined with the constructor? Am I repeating the bringing on of the $_POST data?
-        $this->username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
-        $this->password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-                $hashed_password = password_hash($password, PASSWORD_BCRYPT);
-        $this->email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_SPECIAL_CHARS);
-        $this->usertype = filter_input(INPUT_POST, 'lib_code', FILTER_SANITIZE_SPECIAL_CHARS);
-    }
-
 }

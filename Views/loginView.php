@@ -2,8 +2,7 @@
 <!--
 Author Claire Winterbottom
 -->
-
-
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -20,21 +19,35 @@ Author Claire Winterbottom
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
     </head>
     <body>
-
-        <div id="page-container">
-            <?php
-            include 'header.php';
-            ?>
-            <div id="content-wrap">
-         <div class= "login_login-container">
-             <div class ="login_welcome">
-             <h1 class="login_sign-in">SIGN IN</h1>
-             <p class="login_message">Welcome back to The Awesome Isolation Blog! <br> Sign in to comment or write a blog. <br> </p>
-         </div> 
-         
-          
         
-             <form action= "" method="post" id=form1> 
+    <!----page-container - This is the container that wraps the whole page including header and footer---->
+     <div id="page-container">
+            
+            
+            
+            
+    <!----Including the header / navigation menu------------------------------------------------->    
+        <?php
+            include 'header.php';
+        ?>
+        
+        
+        
+        
+        <!----content-wrap  - this is the container that holds just the content, minus the header & footer--->
+        <div id="content-wrap">
+            
+                
+                
+                
+        <!----intro-section  - if needed. This is where the page title and subheading go------------>        
+                <section class="intro-section">
+                <div class= "login_login-container">
+                <div class ="login_welcome">
+                <h1 class="login_sign-in">SIGN IN</h1>
+                <p class="login_message">Welcome back to The Awesome Isolation Blog! <br> Sign in to comment or write a blog. <br> </p>
+                
+             <form action= "./Controllers/loginController.php" method="post" id=form1> 
 
          
                  <input id="email" class="shadow-sm p-3 mb-5 bg-white rounded form" placeholder="Email" name="email" pattern="[a-z0-9._%+-]+@[a-z]+.com" autofocus required>
@@ -51,12 +64,14 @@ Author Claire Winterbottom
                   <button type="submit" value="register" class="login_register" id="create"> <a href="registrationView.php" class="login_registeracc">CREATE ACCOUNT</a></button>
               </div>
 
-
-         </div>
-                </div>
-       <?php
+                </section>
+                    </div> 
+        
+            <?php
             include 'footer.php';
             ?>   
         </div>
+
     </body>
+
 </html>
