@@ -104,8 +104,19 @@ class Blog {
     return $author;
     } 
     
+        ////GET USERFRIENDLY DATE 
+
+    public static function convertDate($id){
+    $db = Db::getInstance();
+
+    $req = $db->prepare('SELECT date_PUB FROM blog_posts WHERE blog_ID = :id');
+    $req->execute(array('id' => $id));
+    $sqldate = $req->fetchAll();
+    return $sqldate;
+    }
     
-     }
+    
+   
     
 //    //FUNCTION TO UPDATE / EDIT BLOG POSTS
 //    public static function update($id) {
@@ -219,7 +230,7 @@ class Blog {
 //        $req->execute(array('id' => $id));
 //    }
 //
-
+  }
 
 ?>
 
