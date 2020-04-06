@@ -18,15 +18,17 @@
     <body>
         <?php
         include 'header.php';
-        include '../search-program.php';
+        include '../Controllers/search-program.php';
         ?>
 
         <div class="flex-container">
                 <section class="intro-section"> 
-            <div>
             <h1>Search results</h1>
-            <p>
+            
                 </section> 
+            <section class="main-section">
+                <p>
+                <div>
             <?php
             if (count($results) > 0) {
             echo "<b>Your results are as follows:</b><br>"; 
@@ -38,14 +40,18 @@
             }
            
             ?>
+                   
             </p>
+                </div>
+            </section>
             </div>
 
             
-        </div>
+        
         <?php
         include 'footer.php';
         ?>
+        
 
     </body>
 </html>

@@ -2,7 +2,7 @@
 <html>
 <?php
     if (isset($_POST['search'])) {
-    require_once "../search-program.php";
+    require_once "../Controllers/search-program.php";
 }  
     include "../Controllers/headerController.php";
 ?>

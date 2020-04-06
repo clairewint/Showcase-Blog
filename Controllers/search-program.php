@@ -1,6 +1,6 @@
 <?php
 
-include_once 'connection.php';
+include_once '../connection.php';
 
 /* 
 FOR THE SEARCH BAR PROGRAM / FUNCTIONALITY 
