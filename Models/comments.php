@@ -91,6 +91,19 @@ public static function getComments($blogid) {
                 
 		return $username['user_UN'];
 	}
+        
+        
+         //FUNCTION TO PROFILE IMG BY ID
+      public static function getProfileImage($id)
+	{
+		$db = Db::getInstance();
+                
+                $req = $db->prepare('SELECT user_IMG FROM Users WHERE user_ID=:id LIMIT 1');
+		$req->execute(array('id' => $id));
+                $username = $req->fetch();
+                
+		return $username['user_IMG'];
+	}
     
     
   	// Receives a comment id and returns the replies

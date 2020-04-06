@@ -22,11 +22,7 @@
         
         }
         
-        
-        
-        
-        
-        
+  
     // Get all comments from database
         
 //        function getCommentsFromBlog(){
@@ -48,13 +44,16 @@
 	// Receives a user id and returns the username
         
       function getUsernameById($id)
-	{ $userid = $id;
-              $username= Comments::getUsername($id);
-        return $username;
-                
+	{ $username= Comments::getUsername($id);
+        return $username;       
         }
 
-
+      function getProfileImagebyID($id) {
+         $profileimage= Comments::getProfileImage($id);
+        return $profileimage;
+      }
+      
+   
 	// Receives a comment id and returns the username
 	function getRepliesByCommentId($id)
 	{
@@ -62,6 +61,9 @@
 
                 return $replies;       
 	}
+        
+        
+        
         
         
         

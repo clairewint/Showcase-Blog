@@ -1,9 +1,16 @@
 
 .comment-block{
-    
-    margin-bottom:200px;
-margin-left:300px;
+  margin-top:50px;  
+    margin-bottom:100px;
+
 }
+
+.comments-section{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 form button { margin: 5px 0px; }
 textarea { display: block; margin-bottom: 10px; }
@@ -28,9 +35,15 @@ textarea { display: block; margin-bottom: 10px; }
 	border-radius: 50%;
 }
 /*replies*/
-.reply { margin-left: 30px; }
+.reply { margin-left: 30px;}
 .reply_form {
 	margin-left: 30px;
 	display: none;
 }
 #comment_form { margin-top: 10px; }
+
+.flag-btn{
+    margin-left:20px;
+    font-size: 0.8em; 
+    text-decoration: none;
+}

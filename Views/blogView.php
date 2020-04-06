@@ -88,23 +88,23 @@
         
         
         
-        
+         
+        <?php
+            include 'commentsView.php';
+            ?>
         
 
        <!----end of content-wrap div---------------------------------------------------------------->
 
        </div> 
-        
-        <?php
-            include 'commentsView.php';
-            ?>
+       
         
         
         
         
         <!----Including the footer------------------------------------------------------------------>   
             <?php
-            //include 'footer.php';
+            include 'footer.php';
             ?>   
         </div>
 

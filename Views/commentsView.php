@@ -38,7 +38,7 @@ include_once '../Controllers/commentController.php';
 				<?php foreach ($comments as $comment): ?>
 				<!-- comment -->
 				<div class="comment clearfix">
-					<img src="images/profile.png" alt="" class="profile_pic">
+					<img src="<?php echo getProfileImagebyID($comment->userid)?>" alt="" class="profile_pic">
 					
                                         <div class="comment-details">
 						<span class="comment-name"><?php echo getUsernameById($comment->userid) ?></span>
@@ -47,7 +47,12 @@ include_once '../Controllers/commentController.php';
                                          
                                         <!-- reply link -->        
 						<a class="reply-btn" href="blogView.php" data-id="<?php echo $comment->commid; ?>">reply</a>
+                                                <a class ="flag-btn" href="">report  &#128681;</a>
 					</div>
+                                        
+                                        
+                                        
+                                        
                                         
                                         
 					<!-- reply form -->
