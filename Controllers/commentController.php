@@ -3,38 +3,46 @@
 	// Set logged in user id: This is just a simulation of user login. We haven't implemented user log in
 	// But we will assume that when a user logs in, 
 	// they are assigned an id in the session variable to identify them across pages
-	$user_id = 1;
+	
+//        if (isset($_SESSION["userid"]) && $_SESSION["userid"] === true) {
+//        $user_id = $_SESSION["userid"];
+      
+        $user_id = 1;
         
 
         
         
+        function getBlogComments(){
 
-        // get post with id 1 from database
-//            if (!isset($_GET['id']))
-//      echo "errorrrrrr";
-//
-//      try{
-      $blog = Comments::getBlog($_GET['id']);
-      require_once('../Views/blogView.php');
-//      }
-//      catch (Exception $ex){
-//      echo "errorrrrrr";
-//      }
-    
+      $blogid = ($_GET['id']);
+      
+      $comments = Comments::getComments($blogid);
+      return $comments;
+
+        
+        }
+        
+        
+        
+        
         
         
     // Get all comments from database
         
-                if (!$blog)
-      echo "errorrrrrr";
-
-      try{
-      $comments = Comments::getComments($blog->id);
-      }
-      catch (Exception $ex){
-      echo "errorrrrrr";
-      }
-      
+//        function getCommentsFromBlog(){
+//            
+//        $blog=getBlogDetails();    
+//                if (!$blog)
+//      echo "errorrrrrr";
+//
+//      try{
+//      $comments = Comments::getComments($blog->id);
+//      return $comments;
+//      }
+//      catch (Exception $ex){
+//      echo "errorrrrrr";
+//      }
+//        }
         
 
 	// Receives a user id and returns the username

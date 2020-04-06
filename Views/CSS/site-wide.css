@@ -208,7 +208,7 @@ p{ font-family: 'Open Sans', sans-serif;
 
 .header .menu-btn:checked ~ .menu li #log-in {
     padding:10px 10px;
-    width:70px;
+    width:77px;
 }
 
 .header .menu-btn:checked ~ .menu li #item-1 {

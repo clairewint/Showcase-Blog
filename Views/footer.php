@@ -12,12 +12,12 @@
                     <div class="col-lg-4 col-md-6">
                         <h6>The Awesome Isolation Blog</h6>
                         <ul class="list-unstyled three-column">
-                            <li><a href="#family">Home</a></li>
+                            <li><a href="home.php">Home</a></li>
                             <li><a href="#family">Contact</a></li>
                             <li><a href="#family">About</a></li>
-                            <li><a href="#family">Log in</a></li>
-                            <li><a href="#family">Subscribe</a></li>
-                            <li><a href="#family">Browse</a></li>
+                            <li><a href="loginView.php">Log in</a></li>
+                            <li><a href="loginView.php">Subscribe</a></li>
+                            <li><a href="home.php">Browse</a></li>
                         </ul>
 
                     </div>

@@ -3,47 +3,81 @@
 
 class Comments {
 
-    public $id;
+    public $commid;
     public $text;
     public $status;
     public $userid;
     public $blogid;
     
 
-    public function __construct($id, $text, $status, $userid, $blogid) {
-        $this->id = $id;
+    public function __construct($commid, $text, $status, $userid, $blogid) {
+        $this->commid = $commid;
         $this->text = $text;
         $this->status = $status;
         $this->userid = $userid;
-        $this->text = $blogid;
+        $this->blogid = $blogid;
     }
     
     
 
     //FUNCTION TO GET BLOG POST BASED ON ID
-    public static function getBlog($id) {
-      
-        $db = Db::getInstance();
-      
-        $req = $db->prepare('SELECT * FROM blog_posts WHERE blog_ID=:id');
-        $req->execute(array('id' => $id));
-        $blog = $req->fetch();
-        return $blog;
-    }
+//    public static function getBlog($id) {
+//
+//        $db = Db::getInstance();
+//
+//        $id = intval($id);
+//        $req = $db->prepare('SELECT * FROM blog_posts WHERE blog_ID = :id');
+//        $req->execute(array('id' => $id));
+//        $blog = $req->fetch();
+//        
+//        if($blog){
+//      return new Blog($blog['blog_ID'], $blog['genre_TAG'], $blog['user_ID'], $blog['blog_TITLE'], $blog['blog_TXT'], $blog['blog_IMG'], $blog['blog_VIDEO'], $blog['blog_STATUS'], $blog['date_PUB'], $blog['comm_COUNT']);
+//    }
+//    else
+//    {
+//        //replace with a more meaningful exception
+//        throw new Exception('A real exception should go here');
+//    }
+//    } 
+   
+    
+
 
     
     //FUNCTION TO GET ALL COMMENTS FROM DB
     
-    public static function getComments($id) {
-          $db = Db::getInstance();
+public static function getComments($blogid) {
+
+        $db = Db::getInstance();
+
+        $blogid = intval($blogid);
+        $list = [];
+        $req = $db->prepare('SELECT * FROM Comments WHERE blog_ID = :id');
+        $req->execute(['id' => $blogid]);
+
+        foreach ($req->fetchAll() as $comments) {
+         //if($comments){
+               $list[] = new Comments(
+                      $comments['comm_ID'],$comments['comm_TXT'],  $comments['comm_STATUS'], $comments['user_ID'],  $comments['blog_ID']
+                      );            
+              
+           }
+           return $list;
+//          else {
+//    
+//        //replace with a more meaningful exception
+//        throw new Exception('A real exception should go here');
+//    }  
+  
+        }
+
     
-     $req = $db->prepare('SELECT * FROM Comments WHERE blog_ID=:id');
-        //the query was prepared, now replace :id with the actual $id value
-           $req->execute(array('id' => $id));
-        $comments = $req->fetchAll();
-        return  $comments;
-    }
- 
+    
+   
+    
+
+          
+        
     
     
      //FUNCTION TO USERNAME BY ID
@@ -74,16 +108,16 @@ class Comments {
         
         
     // Receives a post id and returns the total number of comments on that post  
-//     function getCommentsCount($blog_ID)
-//	{
-//		$db = Db::getInstance();
-//                
-//                $req = $db->prepare('SELECT COUNT(*) AS total FROM Comments');
-//		$req->execute();
-//                $count = $req->fetch();
-//                $data= $count['total'];
-//                return $data;
-//	}   
+     function getCommentsCount($id)
+	{
+		$db = Db::getInstance();
+                
+                $req = $db->prepare('SELECT COUNT(*) AS total FROM Comments');
+		$req->execute();
+                $count = $req->fetch();
+                $data= $count['total'];
+                return $data;
+	}   
         
         
         
