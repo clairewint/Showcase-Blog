@@ -1,85 +1,55 @@
 <?php 
-  include_once '../Models/comments.php'; 
-	// Set logged in user id: This is just a simulation of user login. We haven't implemented user log in
-	// But we will assume that when a user logs in, 
-	// they are assigned an id in the session variable to identify them across pages
+include_once '../connection.php';  
+include_once '../Models/comments.php'; 
+	$user_id = 1;
+        $blogid =1;
+        
+        
+        $db = Db::getInstance();
 	
-//        if (isset($_SESSION["userid"]) && $_SESSION["userid"] === true) {
-//        $user_id = $_SESSION["userid"];
-      
-        $user_id = 1;
-        
 
-        
-        
+        // Retrieves the blogs comments from the blog id
         function getBlogComments(){
-
       $blogid = ($_GET['id']);
-      
       $comments = Comments::getComments($blogid);
       return $comments;
-
-        
         }
+      
         
-  
-    // Get all comments from database
-        
-//        function getCommentsFromBlog(){
-//            
-//        $blog=getBlogDetails();    
-//                if (!$blog)
-//      echo "errorrrrrr";
-//
-//      try{
-//      $comments = Comments::getComments($blog->id);
-//      return $comments;
-//      }
-//      catch (Exception $ex){
-//      echo "errorrrrrr";
-//      }
-//        }
-        
-
 	// Receives a user id and returns the username
-        
       function getUsernameById($id)
 	{ $username= Comments::getUsername($id);
         return $username;       
         }
+        
 
-      function getProfileImagebyID($id) {
-         $profileimage= Comments::getProfileImage($id);
-        return $profileimage;
-      }
-      
-   
 	// Receives a comment id and returns the username
 	function getRepliesByCommentId($id)
-	{
-		$replies= Comments::getReplies($id);
-
-                return $replies;       
+	{ $replies=Comments::getReplies($id);
+        return $replies;       
 	}
         
+        // Receives a user id and returns the profile image
+        function getProfileImagebyID($id) {
+        $profileimage= Comments::getProfileImage($id);
+        return $profileimage;
+        }
         
-        
-        
-        
+
         
 	// Receives a post id and returns the total number of comments on that post
+	function getCommentsCountByPostId($blogid)
+	{global $db;
+        $req = $db->prepare('SELECT COUNT(*) AS total FROM Comments where blog_ID=:id');
+	$req->execute(['id' => $blogid]);
+        $data = $req->fetch();
+        return $data['total'];
+        }
         
         
         
-//	function getCommentsCountByPostId($_GET['id'])
-//	{ $data= Comments::getCommentsCount($id);
-//        return $data;
-//                
-//	}
         
-        
-        
-      
+
 // If the user clicked submit on comment form...
         
 if (isset($_POST['comment_posted'])) {
@@ -94,8 +64,8 @@ if (isset($_POST['comment_posted'])) {
     
         
 	// insert comment into database
-	  $request = $db->prepare('INSERT INTO Comments (blog_ID, user_ID, comm_TXT) VALUES (1, :id, :text)');
-	  $request->execute(array('id' => $user_id, 'text' => $comment_text));
+	  $request = $db->prepare('INSERT INTO Comments (blog_ID, user_ID, comm_TXT) VALUES (:blogid, :userid, :text)');
+	  $request->execute(array('blogid' => $blogid, 'userid' => $user_id,'text' => $comment_text));
           //$result = $req->fetch();
           
 	// Query same comment from database to send back to be displayed
@@ -108,6 +78,7 @@ if (isset($_POST['comment_posted'])) {
 	
 	// if insert was successful, get that same comment from the database and return it
 	if ($request) {
+            
 		$comment = "<div class='comment clearfix'>
 					<img src='profile.png' alt='' class='profile_pic'>
 					<div class='comment-details'>
@@ -124,7 +95,7 @@ if (isset($_POST['comment_posted'])) {
 				</div>";
 		$comment_info = array(
 			'comment' => $comment,
-			'comments_count' => getCommentsCountByPostId(1)
+			'comments_count' => getCommentsCountByPostId($blogid)
 		);
 		echo json_encode($comment_info);
 		exit();
@@ -143,20 +114,36 @@ if (isset($_POST['reply_posted'])) {
 	// grab the reply that was submitted through Ajax call
 	$reply_text = $_POST['reply_text']; 
 	$comment_id = $_POST['comment_id']; 
+        
+        
 	// insert reply into database
-	$sql = "INSERT INTO replies (user_id, comment_id, body, created_at, updated_at) VALUES (" . $user_id . ", $comment_id, '$reply_text', now(), null)";
-	$result = mysqli_query($db, $sql);
-	$inserted_id = $db->insert_id;
-	$res = mysqli_query($db, "SELECT * FROM replies WHERE id=$inserted_id");
-	$inserted_reply = mysqli_fetch_assoc($res);
+         $request = $db->prepare('INSERT INTO Replies (ruser_ID, comm_ID, reply_TXT) VALUES ( :id , :comm_ID, :reply_TXT)');
+	 $request->execute(array('id' => $user_id,
+                 'comm_ID' => $comment_id,
+                 'reply_TXT' => $reply_text
+                 ));
+         
+         
+       $inserted_id = $db->lastInsertId();
+       
+          $req = $db->prepare('SELECT * FROM Replies WHERE reply_ID=:id');
+	 $req->execute(array('id' => $inserted_id));
+         $inserted_reply = $req->fetch();
+        
+
+        
+        
+        
+        
 	// if insert was successful, get that same reply from the database and return it
-	if ($result) {
+	if ($request) {
+            
 		$reply = "<div class='comment reply clearfix'>
 					<img src='profile.png' alt='' class='profile_pic'>
 					<div class='comment-details'>
-						<span class='comment-name'>" . getUsernameById($inserted_reply['user_id']) . "</span>
-						<span class='comment-date'>" . date('F j, Y ', strtotime($inserted_reply['created_at'])) . "</span>
-						<p>" . $inserted_reply['body'] . "</p>
+						<span class='comment-name'>" . getUsernameById($inserted_reply['ruser_ID']) . "</span>
+					
+						<p>" . $inserted_reply['reply_TXT'] . "</p>
 						<a class='reply-btn' href='#'>reply</a>
 					</div>
 				</div>";
@@ -164,6 +151,6 @@ if (isset($_POST['reply_posted'])) {
 		exit();
 	} else {
 		echo "error";
-		exit();
+		//exit();
 	}
 }

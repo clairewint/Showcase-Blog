@@ -1,7 +1,7 @@
 
  <?php
-include_once '../Controllers/commentController.php';
-            ?>
+ include_once '../Controllers/commentController.php';
+ ?>
 <div class="comment-block">
         <!----comment section---------------------------------------------------------------->    
         
@@ -12,9 +12,9 @@ include_once '../Controllers/commentController.php';
 		<div class="col-md-6 col-md-offset-3 comments-section">
 			<!-- if user is not signed in, tell them to sign in. If signed in, present them with comment form -->
 			<?php if (isset($user_id)): ?>
-                        <form class="clearfix" action="blogView.php" method="post" id="comment_form">
+                        <form class="clearfix" action="commentsView.php" method="post" id="comment_form">
 					<textarea name="comment_text" id="comment_text" class="form-control" cols="30" rows="3"></textarea>
-					<button class="btn btn-primary btn-sm pull-right" name="comment_posted" id="submit_comment">Submit comment</button>
+                                        <button class="btn btn-primary btn-sm pull-right" name="submit_comment" id="submit_comment" >Submit comment</button>
 				</form>
 			<?php else: ?>
 				<div class="well" style="margin-top: 20px;">
@@ -46,7 +46,7 @@ include_once '../Controllers/commentController.php';
                                          <p><?php echo $comment->text;?></p>   
                                          
                                         <!-- reply link -->        
-						<a class="reply-btn" href="blogView.php" data-id="<?php echo $comment->commid; ?>">reply</a>
+						<a class="reply-btn" href="commentsView.php" data-id="<?php echo $comment->commid;?>">reply</a>
                                                 <a class ="flag-btn" href="">report  &#128681;</a>
 					</div>
                                         
@@ -56,7 +56,7 @@ include_once '../Controllers/commentController.php';
                                         
                                         
 					<!-- reply form -->
-                                        <form action="blogView.php" class="reply_form clearfix" id="comment_reply_form_<?php echo $comment->commid; ?>" data-id="<?php echo $comment->commid; ?>">
+                                        <form action="commentsView.php" class="reply_form clearfix" id="comment_reply_form_<?php echo $comment->commid; ?>" data-id="<?php echo $comment->commid; ?>">
 						<textarea class="form-control" name="reply_text" id="reply_text" cols="30" rows="2"></textarea>
 						<button class="btn btn-primary btn-xs pull-right submit-reply">Submit reply</button>
 					</form>
@@ -72,7 +72,7 @@ include_once '../Controllers/commentController.php';
                                             
                                             <!-- reply -->
 								<div class="comment reply clearfix">
-									<img src="images/profile.png" alt="" class="profile_pic">
+									<img src="<?php echo getProfileImagebyID($comment->userid)?>" alt="" class="profile_pic">
 									<div class="comment-details">
 										<span class="comment-name"><?php echo getUsernameById($reply['ruser_ID']) ?></span>
 										
