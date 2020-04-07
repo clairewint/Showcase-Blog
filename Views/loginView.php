@@ -44,9 +44,10 @@ Include '../Controllers/loginController.php'
                 
                 
         <!----intro-section  - if needed. This is where the page title and subheading go------------>        
-                <section class="intro-section">
-                <div class= "login_login-container">
-                <div class ="login_welcome">
+        <section class="intro-section">
+                
+        <div class= "login_login-container">
+            <div class ="login_welcome">
                 <h1 class="login_sign-in">SIGN IN</h1>
                 <p class="login_message">Welcome back to The Awesome Isolation Blog! <br> Sign in to comment or write a blog. <br> </p>
                 
@@ -60,15 +61,16 @@ Include '../Controllers/loginController.php'
                    <p class="login_forgotten-pass"><a href="">Forgotten your password?</a></p>
                    
 
-                 <button type="submit" id="submit" value="submit" form="form1" name='login' class="form">LOG IN</button>    
-             </form>
+                    <button type="submit" id="submit" value="submit" form="form1" name='login' class="form">LOG IN</button>    
+                </form>
          
-              <div class="login_create-acc">
-                  <button type="submit" value="register" class="login_register" id="create"> <a href="registrationView.php" class="login_registeracc">CREATE ACCOUNT</a></button>
-              </div>
-
-                </section>
-                    </div> 
+                    <div class="login_create-acc">
+                     <button type="submit" value="register" class="login_register" id="create"> <a href="registrationView.php" class="login_registeracc">CREATE ACCOUNT</a></button>
+                    </div>
+            </div>
+        </div>
+        </section>
+        </div> 
         
 <?php
     

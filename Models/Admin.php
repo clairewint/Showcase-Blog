@@ -49,3 +49,23 @@ class Admin {//extends Users {
         
     }
 }
+if (isset($_POST['submit']) && empty($errors)) { //only inserts below into DB if submit button is pressed and errors array is empty
+            
+                 
+        $new_mem = $con->prepare("INSERT INTO Users ( user_UN,  user_FN, user_SN, user_EMAIL, user_TYPE, user_PWD)
+              VALUES (  :username, :userfn, :userln, :email, :type, :password)");
+
+        $new_mem->execute([
+            'username' => $userName,
+            'password' => $hashed_password,
+            'userfn' =>  $firstName,
+            'userln' => $lastName,
+            'email' => $email,
+            'type' => $userType,
+                ]);
+
+        $loginMsg = '<div class="alert alert-success alert-dismissible fade show">
+                <strong> <i class="icon fa fa-check"></i> You have successfully registered! Please <a href="../Views/loginView.php" >login.</a></strong>
+             <button type="button" class="close" data-dismiss="alert">&times;</button></div>';
+        return $loginMsg;
+    }
