@@ -1,10 +1,4 @@
 <?php
-
-/**
-This is the model file for login and registration, where database queries are performed
- * @author Claire Winterbottom
- */
-
 require_once '../connection.php';
 
 

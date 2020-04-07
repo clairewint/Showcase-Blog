@@ -1,8 +1,4 @@
 <?php
-
-/* 
-Author: Claire Winterbottom
- */
 session_start ();
 include '../Models/Users.php';
 

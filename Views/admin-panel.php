@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
 session_start();
 require_once '../Controllers/admincontroller.php';

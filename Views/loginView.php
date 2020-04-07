@@ -1,8 +1,3 @@
-
-<!--
-Author Claire Winterbottom
--->
-<!DOCTYPE html>
 <?php
 Include '../Controllers/loginController.php'
 ?>
