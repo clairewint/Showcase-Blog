@@ -15,7 +15,7 @@ function loginRedirect(){
     if (empty($_SESSION)) {
         die;
     } else if (isset($_POST['username'] ) && ($_SESSION ['usertype']=== "Admin"))  {
-       echo "<script> location.href='../Views/adminView.php';; </script>";
+       echo "<script> location.href='../Views/admin-panel.php';; </script>";
     } else if (isset($_POST['username'] ) && ($_SESSION ['usertype']=== "Blogger"))  {
         echo "<script> location.href='../Views/bloggerView.php';; </script>";
    }
