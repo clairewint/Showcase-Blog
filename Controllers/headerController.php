@@ -1,15 +1,15 @@
 <?php
 
 ////temporarily setting this manually until sessions up and running
-$_SESSION['loggedin'] = TRUE;
-$_SESSION['usertype'] = 'Blogger';
+//$_SESSION['loggedin'] = FALSE;
+//$_SESSION['usertype'] = 'Blogger';
 
 
 function getLoginText(){
-if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+if (!empty($_SESSION)) {
     $btntext=" Log out ";
     return $btntext;
-;}elseif (!isset($_SESSION["loggedin"]) | $_SESSION["loggedin"] === false){
+;}elseif (empty($_SESSION)){
     $btntext=" Log in ";
     return $btntext;
 }else {
@@ -19,10 +19,10 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 }
 
 function getLoginAction(){
-if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+if (!empty($_SESSION)) {
     $action='logoutView.php';
             return $action;
-}elseif (!isset($_SESSION["loggedin"]) | $_SESSION["loggedin"] === false){ 
+}elseif (empty($_SESSION)){ 
     $action='loginView.php';
     return $action;
 }else {
@@ -33,14 +33,14 @@ $action='loginView.php';
 
 
 function getAccountPage(){
-   if (!isset($_SESSION["loggedin"]) | $_SESSION["loggedin"] === false){
+   if (empty($_SESSION)){
        $action='loginView.php';
     return $action;
    }
-elseif (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true && $_SESSION["usertype"]==='Admin') {
+elseif (!empty($_SESSION) && $_SESSION["usertype"]==='Admin') {
      $action='adminView.php';
     return $action;
-}elseif (!isset($_SESSION["loggedin"]) | $_SESSION["loggedin"] === true && $_SESSION["usertype"]==='Blogger'){
+}elseif (!empty($_SESSION) && $_SESSION["usertype"]==='Blogger'){
       $action='bloggerView.php';
     return $action;
 }
