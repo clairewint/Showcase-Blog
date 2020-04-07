@@ -1,8 +1,11 @@
-<!DOCTYPE html>
+
 <!--
 Author Claire Winterbottom
 -->
 <!DOCTYPE html>
+<?php
+Include '../Controllers/loginController.php'
+?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -28,7 +31,7 @@ Author Claire Winterbottom
             
     <!----Including the header / navigation menu------------------------------------------------->    
         <?php
-            include 'header.php';
+        include 'header.php';
         ?>
         
         
@@ -47,12 +50,12 @@ Author Claire Winterbottom
                 <h1 class="login_sign-in">SIGN IN</h1>
                 <p class="login_message">Welcome back to The Awesome Isolation Blog! <br> Sign in to comment or write a blog. <br> </p>
                 
-             <form action= "./Controllers/loginController.php" method="post" id=form1> 
+                <form action= "loginView.php" method="post" id=form1> 
 
          
-                 <input id="email" class="shadow-sm p-3 mb-5 bg-white rounded form" placeholder="Email" name="email" pattern="[a-z0-9._%+-]+@[a-z]+.com" autofocus required>
+                 <input id="username" class="shadow-sm p-3 mb-5 bg-white rounded form" placeholder="Your Username" name="username" autofocus required>
                  <span class="error"></span>
-                 <input type= "password" id="password"  class="shadow-sm p-3 mb-5 bg-white rounded form" placeholder="Password" name="password"  required> 
+                 <input type= "password" id="password"  class="shadow-sm p-3 mb-5 bg-white rounded form" placeholder="Your Password" name="password"  required> 
                    <div><?php // echo $loginMsg; ?></div>
                    <p class="login_forgotten-pass"><a href="">Forgotten your password?</a></p>
                    
@@ -67,9 +70,16 @@ Author Claire Winterbottom
                 </section>
                     </div> 
         
-            <?php
-            include 'footer.php';
-            ?>   
+<?php
+    
+Users::checklogin();
+
+loginRedirect();
+
+
+include 'footer.php';
+        
+?>   
         </div>
 
     </body>

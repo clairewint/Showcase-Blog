@@ -17,9 +17,8 @@ function setCommentcount($commentcount) {
     $this->commentcount = $commentcount;
 }
 
-function __construct($commentcount) {
+function __construct($username, $password, $email, $usertype) {
     parent::__construct($username, $password, $email, $usertype);
-    $this->commentcount = $commentcount;
 }
 
 }

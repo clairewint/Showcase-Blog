@@ -52,7 +52,7 @@ class Blogger extends Users{
         $this->profileImg = $profileImg;
     }
 
-    function __construct($firstname, $lastname, $profileImg) {
+    function __construct($username, $password, $email, $usertype, $firstname, $lastname, $profileImg) {
         parent::__construct($username, $password, $email, $usertype);
         $this->firstname = $_POST['firstname'];
         $this->lastname = $_POST['lastname'];

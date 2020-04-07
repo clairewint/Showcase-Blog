@@ -3,28 +3,24 @@
 /* 
 Author: Claire Winterbottom
  */
+session_start ();
+include '../Models/Users.php';
 
-require_once './Models/Users.php';
 
-class Controller {
-public $model;
-public function __construct()
-    {
-        $this->model = new Model();
-    }
-public function invoke()
-{
-$reslt = $this->model->getlogin();     // it call the getlogin() function of model class and store the return value of this function into the reslt variable.
-if($reslt == ‘login’)
-{
-include ‘view/Afterlogin.php’;
+$username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
+$password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS); //change to (password_verify($_POST['password'])) when hash encoding complete
+
+
+function loginRedirect(){ 
+    if (empty($_SESSION)) {
+        die;
+    } else if (isset($_POST['username'] ) && ($_SESSION ['usertype']=== "Admin"))  {
+       echo "<script> location.href='../Views/adminView.php';; </script>";
+    } else if (isset($_POST['username'] ) && ($_SESSION ['usertype']=== "Blogger"))  {
+        echo "<script> location.href='../Views/bloggerView.php';; </script>";
+   }
 }
-else
-{
-include ‘view/login.php’;
-}
-}
-}
+
 ?>
 
 
