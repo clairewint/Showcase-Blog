@@ -28,6 +28,12 @@ function getAuthor() {
     return $authorname;
 }
 
+function getAuthorPic() {
+    $authorpic = Blog::getPic($_GET['id']);
+
+    return $authorpic;
+}
+
 function displayDate(){
     $sqlfulldate = Blog::convertDate($_GET['id']);
     $sqldate = $sqlfulldate['0']['date_PUB'];

@@ -104,6 +104,19 @@ class Blog {
     return $author;
     } 
     
+        ////GET AUTHOR PIC
+
+    public static function getPic($id){
+    $db = Db::getInstance();
+     
+    $blog=self::find($id);
+    $userid=$blog->userid;
+    $req = $db->prepare('SELECT user_IMG from Users WHERE user_ID = :id');
+    $req->execute(array('id' => $userid));
+    $authorpic = $req->fetchAll();
+    return $authorpic;
+    } 
+    
         ////GET USERFRIENDLY DATE 
 
     public static function convertDate($id){

@@ -60,8 +60,9 @@
                     </div> 
                     <div class="blog-details"> 
                         <ul class="blog-details-list">
-                             <li> <p class="date">By <?php echo $authorname=getAuthor();?><span class="dot">&#9679</span></i></i></p></li>
-                            <li> <p class="date">Published <?php echo $displaydate=displayDate() ?><span class="dot">&#9679</span></i></i></p></li>
+                            <li> <img class="author-image" src="<?php  $authorpic=getAuthorPic(); echo $authorpic['0']['user_IMG'] ?>"/></li>
+                             <li> <p class="date">By <?php echo $authorname=getAuthor();?><span class="dot">&#9679</span></p></li>
+                            <li> <p class="date">Published <?php echo $displaydate=displayDate() ?><span class="dot">&#9679</span></p></li>
                             <li> <p class="date"><?php $blog=getBlogPost();echo $blog->genre ?></p></li>
                            
                 </ul>
