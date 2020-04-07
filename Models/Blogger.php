@@ -77,6 +77,18 @@ class Blogger extends Users{
         $this->email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_SPECIAL_CHARS);
         $this->userType = filter_input(INPUT_POST, 'userType', FILTER_SANITIZE_SPECIAL_CHARS);
     }
+    
+    public function getprofile($username){
+        $db = Db::getInstance();
+    
+     $req = $db->prepare('SELECT user_FN,user_LN,user_IMG FROM tadb.Users WHERE user_UN=:id');
+        //the query was prepared, now replace :id with the actual $id value
+           $req->execute(array('id' => $username));
+      // $adminprofile = $req->fetchall(PDO::FETCH_OBJ);
+     $bloggerprofile = $req->fetchall(PDO::FETCH_ASSOC);
+        return  $bloggerprofile;
+        
+    }
 
  //   public function __sanitise() {
  //       parent::__sanitise();

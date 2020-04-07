@@ -1,38 +1,51 @@
 .intro-section-account{
     padding-top: 230px;
-
-
+    width:100%;
     padding-bottom:50px;
-
 }
-
+.row{
+        justify-content: center;
+}
 
 img.account-img{
     width:150px;
-  height:150px;
-  border-radius: 50%;
+    height:150px;
+    border-radius: 50%;
 }
 
+.table-container-intro{
+    width:100%;
+    padding:0;
+    justify-content: center;
+    padding-top:230px;
+    margin-bottom: 70px;
+
+}
 
 .table-container{
     width:100%;
     padding:0;
     justify-content: center;
-    
+
 }
 
- .flex-table {width:100%;
-  display: flex;
-  flex-flow: row wrap;
-  transition: 0.5s;
-  justify-content: center;
+.flex-table {width:100%;
+             display: flex;
+             flex-flow: row wrap;
+             transition: 0.5s;
+             justify-content: center;
 }   
-    
-.flex-row{ width:400px;height:440px;  padding:10px;   
+
+.flex-row{ 
+    width:400px;
+    height:440px;  
+    padding:10px;  
+    justify-content: center;
 }  
 
 .flex-row-intro{ 
-     
+    justify-content: center;
+    padding-right:60px;
 }  
 
 .card-body{
@@ -42,14 +55,18 @@ img.account-img{
     
     height:300px;
     text-align: center;
-      border-width: 4px;
-    
+    border-width: 4px;
+
 }
 
 .acc-link {
-   text-decoration: none; 
+    text-decoration: none; 
 }
 .acc-icon{
     margin-top: 50px;
     margin-bottom:30px;
+}
+
+#blogger-name h1{
+    padding-top:40px;
 }

@@ -1,6 +1,15 @@
 <?php session_start();
+require_once '../Controllers/bloggerController.php';
 
-//var_dump($_SESSION); //testing sessions are working and directing to correct page
+// Check if the user is logged in, if not then redirect him to login page
+if (!isset($_SESSION["loggedin"]) && $_SESSION["usertype"] !== "Blogger") {
+    header("location: loginView.php");
+    exit;
+}
+ $bloggerprofile=bloggerController::getprofile($_SESSION['username']); 
+ $image_path = '/Showcase-Blog/Views/';
+
+
 ?>
 
 <!DOCTYPE html>
@@ -40,17 +49,18 @@
 
                 <!----intro-section  - if needed. This is where the page title and subheading go------------>        
                
-                <div class="table-container" role="table" aria-label="">
+                <div class="table-container-intro" role="table" aria-label="">
                     <div class="flex-table row" role="rowgroup">  
-                        <section class="intro-section-account">
-                        <div class="flex-row-intro" role="cell"> 
-                        <h1>Hello, Lily!</h1>  
+                        
+                        <div class="flex-row-intro" id="blogger-name" role="cell"> 
+                        <h1>Hello, <?=$bloggerprofile[0]['user_FN'];?> !</h1>  
                         </div> 
                         
                         <div class="flex-row-intro" role="cell"> 
-                        <img class="account-img" src="images/SarahConnor.jpg"/>
+                        <img src="<?= $image_path. $bloggerprofile[0]['user_IMG'];?>" class="account-img"   alt="...">
+                    
                         </div> 
-                        </section>
+                        
                   </div>
                 </div>
             
