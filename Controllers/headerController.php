@@ -38,7 +38,7 @@ function getAccountPage(){
     return $action;
    }
 elseif (!empty($_SESSION) && $_SESSION["usertype"]==='Admin') {
-     $action='adminView.php';
+     $action='admin-panel.php';
     return $action;
 }elseif (!empty($_SESSION) && $_SESSION["usertype"]==='Blogger'){
       $action='bloggerView.php';
