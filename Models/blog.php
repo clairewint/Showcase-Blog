@@ -78,59 +78,52 @@ class Blog {
         $req = $db->prepare('SELECT * FROM blog_posts WHERE blog_ID = :id');
         $req->execute(array('id' => $id));
         $blog = $req->fetch();
-        
-        if($blog){
-      return new Blog($blog['blog_ID'], $blog['genre_TAG'], $blog['user_ID'], $blog['blog_TITLE'], $blog['blog_TXT'], $blog['blog_IMG'], $blog['blog_VIDEO'], $blog['blog_STATUS'], $blog['date_PUB'], $blog['comm_COUNT']);
-    }
-    else
-    {
-        //replace with a more meaningful exception
-        throw new Exception('A real exception should go here');
-    }
-    } 
-   
 
-  
+        if ($blog) {
+            return new Blog($blog['blog_ID'], $blog['genre_TAG'], $blog['user_ID'], $blog['blog_TITLE'], $blog['blog_TXT'], $blog['blog_IMG'], $blog['blog_VIDEO'], $blog['blog_STATUS'], $blog['date_PUB'], $blog['comm_COUNT']);
+        } else {
+            //replace with a more meaningful exception
+            throw new Exception('A real exception should go here');
+        }
+    }
+
     ////GET AUTHOR NAME
 
-    public static function getAuthor($id){
-    $db = Db::getInstance();
-     
-    $blog=self::find($id);
-    $userid=$blog->userid;
-    $req = $db->prepare('SELECT user_FN, user_LN FROM Users WHERE user_ID = :id');
-    $req->execute(array('id' => $userid));
-    $author = $req->fetchAll();
-    return $author;
-    } 
-    
-        ////GET AUTHOR PIC
+    public static function getAuthor($id) {
+        $db = Db::getInstance();
 
-    public static function getPic($id){
-    $db = Db::getInstance();
-     
-    $blog=self::find($id);
-    $userid=$blog->userid;
-    $req = $db->prepare('SELECT user_IMG from Users WHERE user_ID = :id');
-    $req->execute(array('id' => $userid));
-    $authorpic = $req->fetchAll();
-    return $authorpic;
-    } 
-    
-        ////GET USERFRIENDLY DATE 
-
-    public static function convertDate($id){
-    $db = Db::getInstance();
-
-    $req = $db->prepare('SELECT date_PUB FROM blog_posts WHERE blog_ID = :id');
-    $req->execute(array('id' => $id));
-    $sqldate = $req->fetchAll();
-    return $sqldate;
+        $blog = self::find($id);
+        $userid = $blog->userid;
+        $req = $db->prepare('SELECT user_FN, user_LN FROM Users WHERE user_ID = :id');
+        $req->execute(array('id' => $userid));
+        $author = $req->fetchAll();
+        return $author;
     }
-    
-    
-   
-    
+
+    ////GET AUTHOR PIC
+
+    public static function getPic($id) {
+        $db = Db::getInstance();
+
+        $blog = self::find($id);
+        $userid = $blog->userid;
+        $req = $db->prepare('SELECT user_IMG from Users WHERE user_ID = :id');
+        $req->execute(array('id' => $userid));
+        $authorpic = $req->fetchAll();
+        return $authorpic;
+    }
+
+    ////GET USERFRIENDLY DATE 
+
+    public static function convertDate($id) {
+        $db = Db::getInstance();
+
+        $req = $db->prepare('SELECT date_PUB FROM blog_posts WHERE blog_ID = :id');
+        $req->execute(array('id' => $id));
+        $sqldate = $req->fetchAll();
+        return $sqldate;
+    }
+
 //    //FUNCTION TO UPDATE / EDIT BLOG POSTS
 //    public static function update($id) {
 //        $db = Db::getInstance();
@@ -243,7 +236,6 @@ class Blog {
 //        $req->execute(array('id' => $id));
 //    }
 //
-  }
-
+}
 ?>
 

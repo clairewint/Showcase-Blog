@@ -18,8 +18,6 @@ function getBlogPost() {
 // }
 }
 
-
-
 function getAuthor() {
     $author = Blog::getAuthor($_GET['id']);
     $firstname = $author['0']['user_FN'];
@@ -34,12 +32,12 @@ function getAuthorPic() {
     return $authorpic;
 }
 
-function displayDate(){
+function displayDate() {
     $sqlfulldate = Blog::convertDate($_GET['id']);
     $sqldate = $sqlfulldate['0']['date_PUB'];
     $date = strtotime($sqldate);
-    $displaydate=date('j F Y', $date);
+    $displaydate = date('j F Y', $date);
     return $displaydate;
-    }
+}
 
 ?>

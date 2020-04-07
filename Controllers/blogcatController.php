@@ -3,7 +3,7 @@
 include_once '../Models/blog.php';
 
 ////GET ALL BLOGS BY GENRE TAG
-    function getAllBlogsByTag($tag) {
+function getAllBlogsByTag($tag) {
 //          if (!isset($_GET['tag']))
 //      echo "errorrrrrrhere";
     //$tag = $_GET['tag'];
